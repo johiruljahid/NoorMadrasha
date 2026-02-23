@@ -1,0 +1,7 @@
+{
+  "name": "Noor Madrasha Smart System",
+  "description": "A premium 3D Islamic Madrasha website with a sophisticated, modern, and visually stunning design, featuring full Bangla and English support.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
