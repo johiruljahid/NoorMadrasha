@@ -293,6 +293,28 @@ export default function FeesCollection() {
         />
       </div>
 
+      {/* Background Shapes */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10">
+        <motion.div 
+          animate={{ 
+            y: [0, -20, 0],
+            rotate: [0, 10, 0],
+            scale: [1, 1.1, 1]
+          }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-20 right-10 w-32 h-32 bg-indigo-500/10 rounded-3xl blur-2xl"
+        />
+        <motion.div 
+          animate={{ 
+            y: [0, 20, 0],
+            rotate: [0, -10, 0],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute bottom-40 left-10 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl"
+        />
+      </div>
+
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8">
         <div>
           <h1 className="text-4xl font-black text-slate-900 mb-2 tracking-tight">ফি সংগ্রহ</h1>
@@ -301,12 +323,21 @@ export default function FeesCollection() {
         <div className="flex gap-4">
           <button 
             onClick={() => setIsFeeTypeModalOpen(true)}
-            className="btn-smart-white flex items-center gap-2"
+            className="btn-3d bg-gradient-to-br from-indigo-500 to-violet-600 text-white border-indigo-700 py-4 px-8 flex items-center gap-3 font-black uppercase tracking-widest text-xs shadow-xl shadow-indigo-200"
           >
-            <Plus size={20} /> ফি এর ধরন যোগ করুন
+            <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
+              <Plus size={18} />
+            </div>
+            ফি এর ধরন যোগ করুন
           </button>
-          <button onClick={() => setIsModalOpen(true)} className="btn-smart-primary flex items-center gap-2">
-            <Plus size={20} /> নতুন ফি সংগ্রহ
+          <button 
+            onClick={() => setIsModalOpen(true)} 
+            className="btn-3d bg-gradient-to-br from-emerald-500 to-teal-600 text-white border-emerald-700 py-4 px-8 flex items-center gap-3 font-black uppercase tracking-widest text-xs shadow-xl shadow-emerald-200"
+          >
+            <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
+              <Plus size={18} />
+            </div>
+            নতুন ফি সংগ্রহ
           </button>
         </div>
       </div>
@@ -333,65 +364,6 @@ export default function FeesCollection() {
           </motion.div>
         ))}
       </div>
-
-      {/* Pending Requests */}
-      {pendingRequests.length > 0 && (
-        <div className="space-y-6">
-          <h2 className="text-2xl font-black text-slate-900 flex items-center gap-3">
-            <Clock size={28} className="text-amber-500" /> পেন্ডিং পেমেন্ট রিকোয়েস্ট
-          </h2>
-          <div className="card-3d p-0 overflow-hidden border-2 border-amber-100">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left">
-                <thead>
-                  <tr className="bg-amber-50/50 border-b border-amber-100">
-                    <th className="px-10 py-6 text-[10px] font-black text-amber-800 uppercase tracking-[0.2em]">ছাত্র</th>
-                    <th className="px-10 py-6 text-[10px] font-black text-amber-800 uppercase tracking-[0.2em]">পদ্ধতি</th>
-                    <th className="px-10 py-6 text-[10px] font-black text-amber-800 uppercase tracking-[0.2em]">ট্রানজেকশন আইডি</th>
-                    <th className="px-10 py-6 text-[10px] font-black text-amber-800 uppercase tracking-[0.2em]">পরিমাণ</th>
-                    <th className="px-10 py-6 text-[10px] font-black text-amber-800 uppercase tracking-[0.2em] text-right">অ্যাকশন</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-amber-50">
-                  {pendingRequests.map((req) => (
-                    <tr key={req.id} className="hover:bg-amber-50/30 transition-colors">
-                      <td className="px-10 py-6">
-                        <div className="flex flex-col">
-                          <span className="text-lg font-black text-slate-900">{req.studentName}</span>
-                          <span className="text-xs font-bold text-slate-500">আইডি: {req.studentId}</span>
-                        </div>
-                      </td>
-                      <td className="px-10 py-6">
-                        <span className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-sm ${
-                          req.method === 'bkash' ? 'bg-pink-100 text-pink-600' : 'bg-orange-100 text-orange-600'
-                        }`}>
-                          {req.method}
-                        </span>
-                      </td>
-                      <td className="px-10 py-6 font-mono text-sm font-bold text-slate-600">{req.transactionId}</td>
-                      <td className="px-10 py-6 text-xl font-black text-slate-900">{formatCurrency(req.amount)}</td>
-                      <td className="px-10 py-6 text-right space-x-4">
-                        <button 
-                          onClick={() => handleApprove(req.id)}
-                          className="btn-3d bg-emerald-500 text-white border-emerald-600 text-[10px] py-2 px-6 uppercase tracking-widest"
-                        >
-                          অনুমোদন
-                        </button>
-                        <button 
-                          onClick={() => handleReject(req.id)}
-                          className="btn-3d bg-rose-500 text-white border-rose-600 text-[10px] py-2 px-6 uppercase tracking-widest"
-                        >
-                          বাতিল
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Search & List */}
       <div className="card-3d p-6">

@@ -36,6 +36,7 @@ import TeacherManagement from './pages/admin/TeacherManagement';
 import AttendanceSystem from './pages/admin/AttendanceSystem';
 import ResultManagement from './pages/admin/ResultManagement';
 import FeesCollection from './pages/admin/FeesCollection';
+import PaymentRequests from './pages/admin/PaymentRequests';
 import AccountsSection from './pages/admin/AccountsSection';
 import NoticeManagement from './pages/admin/NoticeManagement';
 import DonationManagement from './pages/admin/DonationManagement';
@@ -79,6 +80,7 @@ export default function App() {
           <Route path="attendance" element={<AttendanceSystem />} />
           <Route path="results" element={<ResultManagement />} />
           <Route path="fees" element={<FeesCollection />} />
+          <Route path="payment-requests" element={<PaymentRequests />} />
           <Route path="accounts" element={<AccountsSection />} />
           <Route path="notices" element={<NoticeManagement />} />
           <Route path="donations" element={<DonationManagement />} />

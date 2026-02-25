@@ -11,7 +11,9 @@ import {
   Heart,
   LogOut,
   Menu,
-  X
+  X,
+  ChevronDown,
+  ChevronRight
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -21,13 +23,23 @@ export default function AdminLayout() {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
+
   const navItems = [
     { name: 'ড্যাশবোর্ড', path: '/admin/dashboard', icon: LayoutDashboard },
     { name: 'ছাত্র ব্যবস্থাপনা', path: '/admin/students', icon: Users },
     { name: 'শিক্ষক ব্যবস্থাপনা', path: '/admin/teachers', icon: GraduationCap },
     { name: 'উপস্থিতি', path: '/admin/attendance', icon: UserCheck },
     { name: 'ফলাফল', path: '/admin/results', icon: FileSpreadsheet },
-    { name: 'ফি সংগ্রহ', path: '/admin/fees', icon: Wallet },
+    { 
+      name: 'ফি সংগ্রহ', 
+      path: '/admin/fees', 
+      icon: Wallet,
+      subItems: [
+        { name: 'ফি সংগ্রহ তালিকা', path: '/admin/fees' },
+        { name: 'পেমেন্ট রিকোয়েস্ট', path: '/admin/payment-requests' },
+      ]
+    },
     { name: 'হিসাব রক্ষণ', path: '/admin/accounts', icon: PieChart },
     { name: 'নোটিশ', path: '/admin/notices', icon: Bell },
     { name: 'অনুদান', path: '/admin/donations', icon: Heart },
@@ -35,6 +47,11 @@ export default function AdminLayout() {
 
   useEffect(() => {
     setIsSidebarOpen(false);
+    // Auto-open sub-menu if current path is in it
+    const activeItem = navItems.find(item => 
+      item.subItems?.some(sub => location.pathname === sub.path)
+    );
+    if (activeItem) setOpenSubMenu(activeItem.name);
   }, [location.pathname]);
 
   const handleLogout = () => {
@@ -77,19 +94,62 @@ export default function AdminLayout() {
             </button>
           </div>
 
-          <nav className="flex-grow p-4 space-y-1 overflow-y-auto">
+          <nav className="flex-grow p-4 space-y-1 overflow-y-auto custom-scrollbar">
             {navItems.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                className={({ isActive }) => `
-                  flex items-center gap-3 px-4 py-3 rounded-xl transition-all
-                  ${isActive ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'hover:bg-slate-800 hover:text-white'}
-                `}
-              >
-                <item.icon size={20} />
-                <span className="font-medium">{item.name}</span>
-              </NavLink>
+              <div key={item.name} className="space-y-1">
+                {item.subItems ? (
+                  <>
+                    <button
+                      onClick={() => setOpenSubMenu(openSubMenu === item.name ? null : item.name)}
+                      className={`
+                        w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all
+                        ${location.pathname.startsWith(item.path) ? 'bg-slate-800 text-white' : 'hover:bg-slate-800 hover:text-white'}
+                      `}
+                    >
+                      <div className="flex items-center gap-3">
+                        <item.icon size={20} />
+                        <span className="font-medium">{item.name}</span>
+                      </div>
+                      {openSubMenu === item.name ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                    </button>
+                    <AnimatePresence>
+                      {openSubMenu === item.name && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="overflow-hidden pl-11 space-y-1"
+                        >
+                          {item.subItems.map((sub) => (
+                            <NavLink
+                              key={sub.path}
+                              to={sub.path}
+                              end={sub.path === item.path}
+                              className={({ isActive }) => `
+                                flex items-center gap-3 px-4 py-2 rounded-lg text-sm transition-all
+                                ${isActive ? 'text-primary font-bold' : 'text-slate-400 hover:text-white'}
+                              `}
+                            >
+                              <span>{sub.name}</span>
+                            </NavLink>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </>
+                ) : (
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) => `
+                      flex items-center gap-3 px-4 py-3 rounded-xl transition-all
+                      ${isActive ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'hover:bg-slate-800 hover:text-white'}
+                    `}
+                  >
+                    <item.icon size={20} />
+                    <span className="font-medium">{item.name}</span>
+                  </NavLink>
+                )}
+              </div>
             ))}
           </nav>
 

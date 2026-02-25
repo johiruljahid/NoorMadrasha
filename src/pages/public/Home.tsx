@@ -53,6 +53,16 @@ export default function Home() {
 
   const notices = noticeService.getNotices().filter(n => n.isPublic).slice(0, 3);
 
+  // Scroll lock when modal is open
+  React.useEffect(() => {
+    if (selectedNotice) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => { document.body.style.overflow = 'unset'; };
+  }, [selectedNotice]);
+
   return (
     <div className="flex flex-col bg-slate-50 overflow-hidden">
       {/* Hero Section - Grand & Premium */}
@@ -347,33 +357,33 @@ export default function Home() {
       {/* Notice Detail Modal */}
       <AnimatePresence>
         {selectedNotice && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedNotice(null)}
-              className="absolute inset-0 bg-slate-900/80 backdrop-blur-md"
+              className="fixed inset-0 bg-slate-900/80 backdrop-blur-md"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-3xl bg-white rounded-[3rem] shadow-2xl overflow-hidden"
+              className="relative w-full max-w-3xl bg-white rounded-[2rem] lg:rounded-[3rem] shadow-2xl overflow-hidden my-auto"
             >
-              <div className="p-8 sm:p-12">
-                <div className="flex justify-between items-start mb-10">
-                  <div className="flex items-center gap-6">
-                    <div className={`w-20 h-20 rounded-3xl flex items-center justify-center shadow-xl ${
+              <div className="p-6 sm:p-12 max-h-[90vh] overflow-y-auto custom-scrollbar">
+                <div className="flex justify-between items-start mb-8 lg:mb-10">
+                  <div className="flex items-center gap-4 lg:gap-6">
+                    <div className={`w-14 h-14 lg:w-20 lg:h-20 rounded-2xl lg:rounded-3xl flex items-center justify-center shadow-xl shrink-0 ${
                       selectedNotice.category === 'exam' ? 'bg-rose-500 text-white' :
                       selectedNotice.category === 'holiday' ? 'bg-emerald-500 text-white' :
                       'bg-primary text-white'
                     }`}>
-                      <Bell size={40} />
+                      <Bell size={32} className="lg:w-10 lg:h-10" />
                     </div>
                     <div>
-                      <div className="flex items-center gap-4 mb-2">
-                        <span className={`px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-sm ${
+                      <div className="flex flex-wrap items-center gap-3 mb-2">
+                        <span className={`px-3 py-1 rounded-full text-[8px] lg:text-[10px] font-black uppercase tracking-widest shadow-sm ${
                           selectedNotice.category === 'exam' ? 'bg-rose-100 text-rose-600' :
                           selectedNotice.category === 'holiday' ? 'bg-emerald-100 text-emerald-600' :
                           'bg-primary/10 text-primary'
@@ -382,49 +392,49 @@ export default function Home() {
                            selectedNotice.category === 'holiday' ? 'ছুটি' : 
                            selectedNotice.category === 'admission' ? 'ভর্তি' : 'সাধারণ'}
                         </span>
-                        <span className="text-xs font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
-                          <Calendar size={16} /> {selectedNotice.date}
+                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-1">
+                          <Calendar size={14} /> {selectedNotice.date}
                         </span>
                       </div>
-                      <h2 className="text-3xl sm:text-4xl font-black text-slate-900 leading-tight">{selectedNotice.title}</h2>
+                      <h2 className="text-xl lg:text-4xl font-black text-slate-900 leading-tight">{selectedNotice.title}</h2>
                     </div>
                   </div>
-                  <button onClick={() => setSelectedNotice(null)} className="p-4 bg-slate-50 text-slate-400 hover:text-rose-500 hover:bg-rose-50 rounded-2xl transition-all">
-                    <X size={28} />
+                  <button onClick={() => setSelectedNotice(null)} className="p-3 bg-slate-50 text-slate-400 hover:text-rose-500 hover:bg-rose-50 rounded-xl transition-all shrink-0">
+                    <X size={24} />
                   </button>
                 </div>
 
-                <div className="prose prose-slate max-w-none mb-12">
-                  <p className="text-xl text-slate-600 leading-relaxed font-medium whitespace-pre-wrap">
+                <div className="prose prose-slate max-w-none mb-10 lg:mb-12">
+                  <p className="text-base lg:text-xl text-slate-600 leading-relaxed font-medium whitespace-pre-wrap">
                     {selectedNotice.content}
                   </p>
                 </div>
 
                 {selectedNotice.fileName && (
-                  <div className="p-8 bg-slate-50 rounded-[2rem] border-2 border-dashed border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6">
+                  <div className="p-6 lg:p-8 bg-slate-50 rounded-2xl lg:rounded-[2rem] border-2 border-dashed border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6">
                     <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary shadow-sm border border-slate-100">
-                        <FileText size={32} />
+                      <div className="w-12 h-12 lg:w-16 lg:h-16 bg-white rounded-xl lg:rounded-2xl flex items-center justify-center text-primary shadow-sm border border-slate-100">
+                        <FileText size={28} className="lg:w-8 lg:h-8" />
                       </div>
                       <div>
-                        <p className="text-slate-900 font-black text-lg">{selectedNotice.fileName}</p>
-                        <p className="text-slate-400 font-bold text-sm uppercase tracking-widest">সংযুক্ত ফাইল</p>
+                        <p className="text-slate-900 font-black text-base lg:text-lg truncate max-w-[200px]">{selectedNotice.fileName}</p>
+                        <p className="text-slate-400 font-bold text-[10px] lg:text-sm uppercase tracking-widest">সংযুক্ত ফাইল</p>
                       </div>
                     </div>
                     <a 
                       href={selectedNotice.fileUrl} 
                       download
-                      className="btn-premium-3d py-4 px-10 flex items-center gap-3 text-lg"
+                      className="btn-3d bg-primary text-white border-primary-dark py-3 lg:py-4 px-8 lg:px-10 flex items-center gap-3 text-sm lg:text-lg w-full sm:w-auto justify-center"
                     >
-                      <Download size={24} /> ডাউনলোড করুন
+                      <Download size={20} className="lg:w-6 lg:h-6" /> ডাউনলোড
                     </a>
                   </div>
                 )}
 
-                <div className="mt-12 pt-8 border-t border-slate-100 flex justify-center">
+                <div className="mt-10 lg:mt-12 pt-6 lg:pt-8 border-t border-slate-100 flex justify-center">
                   <button 
                     onClick={() => setSelectedNotice(null)}
-                    className="text-slate-400 font-black uppercase tracking-[0.3em] text-xs hover:text-primary transition-colors"
+                    className="text-slate-400 font-black uppercase tracking-[0.3em] text-[10px] hover:text-primary transition-colors"
                   >
                     বন্ধ করুন
                   </button>

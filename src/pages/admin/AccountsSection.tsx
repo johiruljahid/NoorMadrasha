@@ -88,6 +88,25 @@ export default function AccountsSection() {
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
           className="absolute top-1/2 -right-20 w-[30rem] h-[30rem] bg-accent/5 rounded-full blur-3xl"
         />
+        {/* Additional 3D Decorative Shapes */}
+        <motion.div 
+          animate={{ 
+            z: [0, 50, 0],
+            rotateX: [0, 45, 0],
+            rotateY: [0, 45, 0]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 left-1/4 w-24 h-24 bg-gradient-to-br from-emerald-400/20 to-teal-500/20 rounded-2xl blur-xl"
+        />
+        <motion.div 
+          animate={{ 
+            z: [0, -50, 0],
+            rotateX: [0, -45, 0],
+            rotateY: [0, -45, 0]
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute bottom-1/4 right-1/3 w-32 h-32 bg-gradient-to-br from-rose-400/20 to-pink-500/20 rounded-full blur-xl"
+        />
       </div>
 
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8">
@@ -98,15 +117,21 @@ export default function AccountsSection() {
         <div className="flex gap-4">
           <button 
             onClick={() => { setType('income'); setIsModalOpen(true); }} 
-            className="btn-3d bg-white text-emerald-600 border-slate-100 py-4 px-8 font-black uppercase tracking-widest text-xs"
+            className="btn-3d bg-gradient-to-br from-emerald-500 to-teal-600 text-white border-emerald-700 py-4 px-8 flex items-center gap-3 font-black uppercase tracking-widest text-xs shadow-xl shadow-emerald-200"
           >
-            <Plus size={20} /> আয় যোগ করুন
+            <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
+              <Plus size={18} />
+            </div>
+            আয় যোগ করুন
           </button>
           <button 
             onClick={() => { setType('expense'); setIsModalOpen(true); }} 
-            className="btn-3d bg-rose-600 text-white border-rose-700 py-4 px-8 font-black uppercase tracking-widest text-xs"
+            className="btn-3d bg-gradient-to-br from-rose-500 to-pink-600 text-white border-rose-700 py-4 px-8 flex items-center gap-3 font-black uppercase tracking-widest text-xs shadow-xl shadow-rose-200"
           >
-            <Plus size={20} /> ব্যয় যোগ করুন
+            <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
+              <Plus size={18} />
+            </div>
+            ব্যয় যোগ করুন
           </button>
         </div>
       </div>
