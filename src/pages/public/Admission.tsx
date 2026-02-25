@@ -413,6 +413,84 @@ export default function Admission() {
         </div>
       </section>
 
+      {/* Departments & Classes Section */}
+      <section className="py-24 lg:py-48 px-4 max-w-7xl mx-auto w-full">
+        <div className="text-center mb-24 lg:mb-32">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-5xl sm:text-7xl lg:text-9xl font-black text-primary-dark mb-8 leading-tight">আমাদের <span className="text-accent text-3d-premium">বিভাগ ও ক্লাসসমূহ</span></h2>
+            <p className="text-slate-500 text-xl lg:text-3xl font-bold max-w-4xl mx-auto leading-relaxed">নূর মাদ্রাসায় আমরা বিভিন্ন স্তরে মানসম্মত দ্বীনি শিক্ষা প্রদান করি। আমাদের প্রধান বিভাগসমূহ নিচে তুলে ধরা হলো।</p>
+            <div className="w-40 h-3 bg-accent mx-auto mt-12 rounded-full shadow-lg"></div>
+          </motion.div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+          {[
+            {
+              title: 'কিতাব বিভাগ',
+              titleEn: 'Kitab Department',
+              desc: 'উচ্চতর ইসলামিক শিক্ষা যেখানে কুরআন, হাদিস, ফিকহ এবং আরবি সাহিত্যের গভীর জ্ঞান প্রদান করা হয়।',
+              img: 'https://images.unsplash.com/photo-1585858500266-9782833c76ef?auto=format&fit=crop&q=80&w=800',
+              features: ['কুরআন তাফসির', 'হাদিস শাস্ত্র', 'আরবি সাহিত্য', 'ইসলামিক আইন']
+            },
+            {
+              title: 'হিফজ বিভাগ',
+              titleEn: 'Hifz Department',
+              desc: 'পবিত্র কুরআন মুখস্থ করার বিশেষ বিভাগ। অভিজ্ঞ হাফেজদের তত্ত্বাবধানে তাজবিদসহ কুরআন হিফজ করানো হয়।',
+              img: 'https://images.unsplash.com/photo-1577891729319-f28b3c14ad53?auto=format&fit=crop&q=80&w=800',
+              features: ['তাজবিদ শিক্ষা', 'হিফজুল কুরআন', 'মাসনুন দোয়া', 'চরিত্র গঠন']
+            },
+            {
+              title: 'নুরানি ও নাজেরা',
+              titleEn: 'Noorani & Nazera',
+              desc: 'শিশুদের জন্য কুরআনের প্রাথমিক শিক্ষা। সহিহ শুদ্ধভাবে কুরআন তিলাওয়াত শেখানোর প্রথম ধাপ।',
+              img: 'https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&q=80&w=800',
+              features: ['কায়দা শিক্ষা', 'সহিহ তিলাওয়াত', 'প্রাথমিক মাসায়েল', 'ইসলামিক আদব']
+            },
+            {
+              title: 'আদাব ও হাদিস',
+              titleEn: 'Adab & Hadith',
+              desc: 'রাসূল (সা.)-এর সুন্নাহ ও ইসলামী শিষ্টাচার শিক্ষার বিভাগ। ব্যবহারিক জীবনের জন্য প্রয়োজনীয় হাদিস শিক্ষা।',
+              img: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&q=80&w=800',
+              features: ['সুন্নাহর অনুশীলন', 'ইসলামী ইতিহাস', 'আদাব ও আখলাক', 'হাদিস মুখস্থকরণ']
+            }
+          ].map((dept, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15 }}
+              whileHover={{ y: -15 }}
+              className="card-3d-neo overflow-hidden group bg-white/95 backdrop-blur-xl border-8 border-white/40 shadow-[0_50px_100px_rgba(0,0,0,0.1)]"
+            >
+              <div className="relative h-80 lg:h-[450px] overflow-hidden">
+                <img src={dept.img} alt={dept.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/40 to-transparent"></div>
+                <div className="absolute bottom-8 left-8 lg:bottom-12 lg:left-12">
+                  <h3 className="text-4xl lg:text-6xl font-black text-white mb-2">{dept.title}</h3>
+                  <p className="text-accent font-black uppercase tracking-[0.3em] text-xs lg:text-lg">{dept.titleEn}</p>
+                </div>
+              </div>
+              <div className="p-10 lg:p-16">
+                <p className="text-slate-600 text-xl lg:text-2xl leading-relaxed font-bold mb-10">{dept.desc}</p>
+                <div className="grid grid-cols-2 gap-6">
+                  {dept.features.map((f, j) => (
+                    <div key={j} className="flex items-center gap-4 text-primary-dark font-black text-lg lg:text-xl">
+                      <div className="w-3 h-3 rounded-full bg-accent shadow-[0_0_10px_rgba(242,125,38,0.5)]"></div>
+                      {f}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Help CTA */}
       <section className="py-48 relative">
         <div className="absolute inset-0 z-0">

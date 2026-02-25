@@ -10,6 +10,7 @@ export default function Donate() {
   const [donorName, setDonorName] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [clickPos, setClickPos] = useState({ x: 0, y: 0 });
   const receiptRef = useRef<HTMLDivElement>(null);
 
   const handleDonate = (e: React.FormEvent) => {
@@ -130,6 +131,7 @@ export default function Donate() {
               <button
                 type="submit"
                 disabled={isProcessing}
+                onClick={(e) => setClickPos({ x: e.clientX, y: e.clientY })}
                 className="w-full btn-smart-primary py-5 flex items-center justify-center gap-3 disabled:opacity-50"
               >
                 {isProcessing ? (
@@ -205,9 +207,20 @@ export default function Donate() {
                 className="absolute inset-0 bg-slate-900/80 backdrop-blur-md"
               />
               <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                initial={{ 
+                  opacity: 0, 
+                  scale: 0, 
+                  x: clickPos.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0), 
+                  y: clickPos.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0) 
+                }}
+                animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+                exit={{ 
+                  opacity: 0, 
+                  scale: 0,
+                  x: clickPos.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0), 
+                  y: clickPos.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0) 
+                }}
+                transition={{ duration: 0.5, type: "spring", damping: 25, stiffness: 200 }}
                 className="relative w-full max-w-lg bg-white rounded-[3rem] shadow-2xl overflow-hidden"
               >
                 <div className="p-10 text-center space-y-8">

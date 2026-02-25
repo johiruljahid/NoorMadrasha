@@ -27,6 +27,8 @@ import { Notice } from '../../types';
 
 export default function Home() {
   const [selectedNotice, setSelectedNotice] = useState<Notice | null>(null);
+  const [clickPos, setClickPos] = useState({ x: 0, y: 0 });
+
   const features = [
     { 
       title: 'মানসম্মত শিক্ষা',
@@ -70,12 +72,12 @@ export default function Home() {
         {/* Background Layers */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1577891729319-f28b3c14ad53?auto=format&fit=crop&q=80&w=2000" 
-            alt="Madrasha Students Studying" 
-            className="w-full h-full object-cover scale-105"
+            src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202505/up-government-conference-with-madrasa-teachers-114141114-16x9.jpg?VersionId=eQuEcbUYZG7PrmVXgoaLiqIRBPm4pEMC&size=690:388" 
+            alt="Madrasha Background" 
+            className="w-full h-full object-cover opacity-20 scale-105"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/95 via-primary-dark/70 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/95 via-primary-dark/70 to-primary-dark/40"></div>
           <div className="absolute inset-0 islamic-pattern-premium opacity-30"></div>
           
           {/* Dynamic Glows */}
@@ -238,8 +240,8 @@ export default function Home() {
             >
               <div className="aspect-[4/5] rounded-3xl lg:rounded-[5rem] overflow-hidden shadow-[0_80px_150px_rgba(0,0,0,0.8)] border-[8px] lg:border-[16px] border-white/5 relative group">
                 <img 
-                  src="https://images.unsplash.com/photo-1585858500266-9782833c76ef?auto=format&fit=crop&q=80&w=1000" 
-                  alt="Madrasha Teacher Teaching" 
+                  src="https://wisdomacademybd.com/admin/uploads/ems-theme-2/website/about-us/muhammad_khan_principal.jpg" 
+                  alt="Principal" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   referrerPolicy="no-referrer"
                 />
@@ -282,39 +284,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Notice Board - Bento Grid 3D */}
+      {/* Gallery Highlights - Replacing Notice Board */}
       <section className="py-24 lg:py-48 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="flex flex-col md:flex-row justify-between items-center lg:items-end gap-8 lg:gap-12 mb-16 lg:mb-24 text-center lg:text-left">
           <div>
-            <h2 className="text-4xl sm:text-6xl lg:text-8xl text-slate-900 mb-6 lg:mb-10 font-black">নোটিশ <span className="text-accent">বোর্ড</span></h2>
+            <h2 className="text-4xl sm:text-6xl lg:text-8xl text-slate-900 mb-6 lg:mb-10 font-black">মাদ্রাসার <span className="text-accent">গ্যালারি</span></h2>
             <div className="w-32 lg:w-64 h-2 lg:h-4 bg-gradient-to-r from-primary to-accent rounded-full shadow-2xl mx-auto lg:mx-0"></div>
           </div>
-          <Link to="/notices" className="btn-premium-3d py-4 lg:py-5 px-8 lg:px-12 text-lg lg:text-2xl shadow-xl">সব নোটিশ দেখুন</Link>
+          <Link to="/gallery" className="btn-premium-3d py-4 lg:py-5 px-8 lg:px-12 text-lg lg:text-2xl shadow-xl">সব ছবি দেখুন</Link>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-          <div className="lg:col-span-8 space-y-6 lg:space-y-10">
-            {notices.map((n, i) => (
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {[
+              { url: 'https://images.unsplash.com/photo-1585858500266-9782833c76ef?auto=format&fit=crop&q=80&w=800', title: 'শ্রেণীকক্ষে পাঠদান' },
+              { url: 'https://images.unsplash.com/photo-1577891729319-f28b3c14ad53?auto=format&fit=crop&q=80&w=800', title: 'ছাত্রদের গ্রুপ স্টাডি' },
+              { url: 'https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&q=80&w=800', title: 'মাদ্রাসার পরিবেশ' },
+              { url: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&q=80&w=800', title: 'সাংস্কৃতিক অনুষ্ঠান' },
+            ].map((img, i) => (
               <motion.div 
-                key={i} 
-                whileHover={{ x: 10, scale: 1.02 }}
-                onClick={() => setSelectedNotice(n)}
-                className="card-3d-neo flex flex-col sm:flex-row items-center gap-6 lg:gap-12 p-6 lg:p-12 cursor-pointer group border-2 lg:border-4 border-transparent hover:border-primary/20 bg-white/90 backdrop-blur-xl text-center sm:text-left"
+                key={i}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl group cursor-pointer"
               >
-                <div className="w-24 h-24 lg:w-32 lg:h-32 bg-slate-100 rounded-2xl lg:rounded-[2.5rem] flex flex-col items-center justify-center text-primary shrink-0 shadow-inner group-hover:bg-primary group-hover:text-white transition-all duration-700">
-                  <span className="text-[10px] lg:text-sm font-black uppercase tracking-widest">{n.date.split(' ')[1] || '২০'}</span>
-                  <span className="text-2xl lg:text-4xl font-black">{n.date.split(' ')[0] || 'ফেব্রু'}</span>
-                </div>
-                <div className="flex-grow">
-                  <div className="flex items-center justify-center sm:justify-start gap-3 lg:gap-6 mb-2 lg:mb-4">
-                    <span className="px-4 lg:px-6 py-1 lg:py-2 bg-primary/10 text-primary text-[8px] lg:text-xs font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] rounded-full shadow-inner">
-                      {n.category === 'exam' ? 'পরীক্ষা' : n.category === 'holiday' ? 'ছুটি' : n.category === 'admission' ? 'ভর্তি' : 'সাধারণ'}
-                    </span>
-                  </div>
-                  <h4 className="text-xl lg:text-4xl font-black text-slate-900 group-hover:text-primary transition-colors leading-tight">{n.title}</h4>
-                </div>
-                <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-xl lg:rounded-[2rem] bg-slate-50 flex items-center justify-center text-slate-300 group-hover:bg-primary/10 group-hover:text-primary transition-all shadow-inner">
-                  <Bell size={24} className="lg:w-10 lg:h-10 group-hover:animate-bounce" />
+                <img src={img.url} alt={img.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                  <p className="text-white font-black text-2xl">{img.title}</p>
                 </div>
               </motion.div>
             ))}
@@ -366,9 +361,20 @@ export default function Home() {
               className="fixed inset-0 bg-slate-900/80 backdrop-blur-md"
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ 
+                opacity: 0, 
+                scale: 0, 
+                x: clickPos.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0), 
+                y: clickPos.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0) 
+              }}
+              animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+              exit={{ 
+                opacity: 0, 
+                scale: 0,
+                x: clickPos.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0), 
+                y: clickPos.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0) 
+              }}
+              transition={{ duration: 0.5, type: "spring", damping: 25, stiffness: 200 }}
               className="relative w-full max-w-3xl bg-white rounded-[2rem] lg:rounded-[3rem] shadow-2xl overflow-hidden my-auto"
             >
               <div className="p-6 sm:p-12 max-h-[90vh] overflow-y-auto custom-scrollbar">

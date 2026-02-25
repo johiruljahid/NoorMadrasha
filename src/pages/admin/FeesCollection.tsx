@@ -24,6 +24,7 @@ export default function FeesCollection() {
   const [isFeeTypeModalOpen, setIsFeeTypeModalOpen] = useState(false);
   const [isHistoryModalOpen, setIsHistoryModalOpen] = useState(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const [clickPos, setClickPos] = useState({ x: 0, y: 0 });
   const [lastPayment, setLastPayment] = useState<any>(null);
   const [selectedStudent, setSelectedStudent] = useState<any>(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -322,7 +323,10 @@ export default function FeesCollection() {
         </div>
         <div className="flex gap-4">
           <button 
-            onClick={() => setIsFeeTypeModalOpen(true)}
+            onClick={(e) => {
+              setClickPos({ x: e.clientX, y: e.clientY });
+              setIsFeeTypeModalOpen(true);
+            }}
             className="btn-3d bg-gradient-to-br from-indigo-500 to-violet-600 text-white border-indigo-700 py-4 px-8 flex items-center gap-3 font-black uppercase tracking-widest text-xs shadow-xl shadow-indigo-200"
           >
             <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
@@ -331,7 +335,10 @@ export default function FeesCollection() {
             ফি এর ধরন যোগ করুন
           </button>
           <button 
-            onClick={() => setIsModalOpen(true)} 
+            onClick={(e) => {
+              setClickPos({ x: e.clientX, y: e.clientY });
+              setIsModalOpen(true);
+            }} 
             className="btn-3d bg-gradient-to-br from-emerald-500 to-teal-600 text-white border-emerald-700 py-4 px-8 flex items-center gap-3 font-black uppercase tracking-widest text-xs shadow-xl shadow-emerald-200"
           >
             <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
@@ -396,7 +403,11 @@ export default function FeesCollection() {
                 <tr 
                   key={fee.id} 
                   className="group hover:bg-slate-50/50 transition-colors cursor-pointer"
-                  onClick={() => { setSelectedStudent(fee); setIsHistoryModalOpen(true); }}
+                  onClick={(e) => { 
+                    setClickPos({ x: e.clientX, y: e.clientY });
+                    setSelectedStudent(fee); 
+                    setIsHistoryModalOpen(true); 
+                  }}
                 >
                   <td className="px-10 py-6">
                     <div className="flex flex-col">
@@ -419,7 +430,11 @@ export default function FeesCollection() {
                   </td>
                   <td className="px-10 py-6 text-right space-x-4" onClick={(e) => e.stopPropagation()}>
                     <button 
-                      onClick={() => { setSelectedStudent(fee); setIsHistoryModalOpen(true); }}
+                      onClick={(e) => { 
+                        setClickPos({ x: e.clientX, y: e.clientY });
+                        setSelectedStudent(fee); 
+                        setIsHistoryModalOpen(true); 
+                      }}
                       className="p-3 text-slate-400 hover:text-primary hover:bg-primary/10 rounded-xl transition-all shadow-sm"
                       title="ছাত্রের প্রোফাইল ও ইতিহাস দেখুন"
                     >
@@ -435,7 +450,11 @@ export default function FeesCollection() {
                       </button>
                     ) : (
                       <button 
-                        onClick={() => { setSelectedStudent(fee); setIsModalOpen(true); }}
+                        onClick={(e) => { 
+                          setClickPos({ x: e.clientX, y: e.clientY });
+                          setSelectedStudent(fee); 
+                          setIsModalOpen(true); 
+                        }}
                         className="btn-3d bg-emerald-600 text-white border-emerald-700 text-[10px] py-2 px-6 uppercase tracking-widest"
                       >
                         সংগ্রহ করুন
@@ -461,9 +480,20 @@ export default function FeesCollection() {
               className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ 
+                opacity: 0, 
+                scale: 0, 
+                x: clickPos.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0), 
+                y: clickPos.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0) 
+              }}
+              animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+              exit={{ 
+                opacity: 0, 
+                scale: 0,
+                x: clickPos.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0), 
+                y: clickPos.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0) 
+              }}
+              transition={{ duration: 0.5, type: "spring", damping: 25, stiffness: 200 }}
               className="relative w-full max-w-xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden"
             >
               <div className="p-8 border-b border-slate-100 flex items-center justify-between bg-primary text-white">
@@ -579,9 +609,20 @@ export default function FeesCollection() {
               className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ 
+                opacity: 0, 
+                scale: 0, 
+                x: clickPos.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0), 
+                y: clickPos.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0) 
+              }}
+              animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+              exit={{ 
+                opacity: 0, 
+                scale: 0,
+                x: clickPos.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0), 
+                y: clickPos.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0) 
+              }}
+              transition={{ duration: 0.5, type: "spring", damping: 25, stiffness: 200 }}
               className="relative w-full max-w-md bg-white rounded-[2rem] shadow-2xl overflow-hidden"
             >
               <div className="p-8 border-b border-slate-100 flex items-center justify-between bg-secondary text-white">
@@ -639,9 +680,20 @@ export default function FeesCollection() {
               className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ 
+                opacity: 0, 
+                scale: 0, 
+                x: clickPos.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0), 
+                y: clickPos.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0) 
+              }}
+              animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+              exit={{ 
+                opacity: 0, 
+                scale: 0,
+                x: clickPos.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0), 
+                y: clickPos.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0) 
+              }}
+              transition={{ duration: 0.5, type: "spring", damping: 25, stiffness: 200 }}
               className="relative w-full max-w-3xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden"
             >
               <div className="p-8 border-b border-slate-100 flex items-center justify-between bg-slate-900 text-white">

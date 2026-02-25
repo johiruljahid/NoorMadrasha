@@ -7,15 +7,15 @@ export default function PublicLayout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Home', bnName: 'হোম', path: '/' },
-    { name: 'About', bnName: 'আমাদের সম্পর্কে', path: '/about' },
-    { name: 'Teachers', bnName: 'শিক্ষকবৃন্দ', path: '/teachers' },
-    { name: 'Admission', bnName: 'ভর্তি তথ্য', path: '/admission' },
-    { name: 'Gallery', bnName: 'গ্যালারি', path: '/gallery' },
-    { name: 'Verify', bnName: 'শিক্ষার্থী যাচাই', path: '/verify-student' },
-    { name: 'Donate', bnName: 'অনুদান', path: '/donate' },
-    { name: 'Notices', bnName: 'নোটিশ', path: '/notices' },
-    { name: 'Contact', bnName: 'যোগাযোগ', path: '/contact' },
+    { name: 'Home', bnName: 'হোম', path: '/', color: 'from-rose-500 to-rose-600' },
+    { name: 'About', bnName: 'আমাদের সম্পর্কে', path: '/about', color: 'from-sky-500 to-sky-600' },
+    { name: 'Teachers', bnName: 'শিক্ষকবৃন্দ', path: '/teachers', color: 'from-emerald-500 to-emerald-600' },
+    { name: 'Admission', bnName: 'ভর্তি তথ্য', path: '/admission', color: 'from-amber-500 to-amber-600' },
+    { name: 'Gallery', bnName: 'গ্যালারি', path: '/gallery', color: 'from-indigo-500 to-indigo-600' },
+    { name: 'Verify', bnName: 'শিক্ষার্থী যাচাই', path: '/verify-student', color: 'from-violet-500 to-violet-600' },
+    { name: 'Donate', bnName: 'অনুদান', path: '/donate', color: 'from-pink-500 to-pink-600' },
+    { name: 'Notices', bnName: 'নোটিশ', path: '/notices', color: 'from-teal-500 to-teal-600' },
+    { name: 'Contact', bnName: 'যোগাযোগ', path: '/contact', color: 'from-blue-500 to-blue-600' },
   ];
 
   return (
@@ -37,14 +37,17 @@ export default function PublicLayout() {
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center space-x-1">
+            <div className="hidden lg:flex items-center space-x-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="px-3 py-2 rounded-lg text-slate-600 font-bold hover:text-primary hover:bg-primary/5 transition-all text-sm whitespace-nowrap"
+                  className="relative group px-4 py-2"
                 >
-                  {link.bnName}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${link.color} rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300 -rotate-3 group-hover:rotate-0 scale-75 group-hover:scale-100 shadow-lg`}></div>
+                  <span className="relative z-10 text-slate-600 font-black group-hover:text-white transition-colors text-sm whitespace-nowrap">
+                    {link.bnName}
+                  </span>
                 </Link>
               ))}
               <div className="pl-4">
@@ -81,10 +84,13 @@ export default function PublicLayout() {
                     key={link.path}
                     to={link.path}
                     onClick={() => setIsMenuOpen(false)}
-                    className="flex justify-between items-center px-6 py-4 rounded-xl hover:bg-slate-50 transition-all text-slate-700"
+                    className="relative group block overflow-hidden rounded-2xl"
                   >
-                    <span className="text-lg font-bold">{link.bnName}</span>
-                    <span className="text-xs font-bold opacity-40 uppercase tracking-widest">{link.name}</span>
+                    <div className={`absolute inset-0 bg-gradient-to-r ${link.color} opacity-0 group-active:opacity-100 transition-opacity`}></div>
+                    <div className="relative z-10 flex justify-between items-center px-6 py-5 border border-slate-100 group-hover:border-transparent transition-colors">
+                      <span className="text-xl font-black text-slate-700 group-hover:text-white transition-colors">{link.bnName}</span>
+                      <span className="text-[10px] font-black opacity-40 uppercase tracking-[0.2em] group-hover:text-white group-hover:opacity-70 transition-all">{link.name}</span>
+                    </div>
                   </Link>
                 ))}
                 <div className="pt-4 px-2">

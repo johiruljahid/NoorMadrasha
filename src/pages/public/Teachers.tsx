@@ -229,8 +229,8 @@ export default function Teachers() {
               <div className="absolute -inset-10 bg-accent/20 rounded-[5rem] blur-[100px] animate-pulse"></div>
               <div className="relative card-3d-neo p-6 bg-white/50 backdrop-blur-2xl border-8 border-white/40 overflow-hidden group shadow-[0_80px_150px_rgba(0,0,0,0.2)]">
                 <img 
-                  src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1000" 
-                  alt="Teachers Group" 
+                  src="https://i.guim.co.uk/img/static/sys-images/Education/Pix/pictures/2011/11/25/1322239219355/Crown-Hills-madrasa-highl-007.jpg?width=620&dpr=1&s=none&crop=none" 
+                  alt="Teachers Characteristics" 
                   className="rounded-[3rem] w-full shadow-2xl group-hover:scale-110 transition-transform duration-1000"
                   referrerPolicy="no-referrer"
                 />

@@ -21,6 +21,7 @@ import toast from 'react-hot-toast';
 export default function StudentFees() {
   const [student, setStudent] = useState<any>(null);
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+  const [clickPos, setClickPos] = useState({ x: 0, y: 0 });
   const [paymentMethod, setPaymentMethod] = useState<'bkash' | 'nagad'>('bkash');
   const [transactionId, setTransactionId] = useState('');
   const [paymentHistory, setPaymentHistory] = useState<PaymentRequest[]>([]);
@@ -119,7 +120,12 @@ export default function StudentFees() {
           {months.map((month, i) => (
             <div 
               key={i} 
-              onClick={() => month.status === 'due' && setIsPaymentModalOpen(true)}
+              onClick={(e) => {
+                if (month.status === 'due') {
+                  setClickPos({ x: e.clientX, y: e.clientY });
+                  setIsPaymentModalOpen(true);
+                }
+              }}
               className={`p-4 rounded-2xl border-2 transition-all text-center space-y-2 cursor-pointer group ${
                 month.status === 'paid' ? 'bg-emerald-50 border-emerald-100 text-emerald-600' :
                 month.status === 'due' ? 'bg-rose-50 border-rose-200 text-rose-600 animate-pulse hover:scale-105 shadow-lg shadow-rose-100' :
@@ -197,7 +203,10 @@ export default function StudentFees() {
               <p className="text-4xl font-black text-accent">{formatCurrency(student.totalDue)}</p>
             </div>
             <button 
-              onClick={() => setIsPaymentModalOpen(true)}
+              onClick={(e) => {
+                setClickPos({ x: e.clientX, y: e.clientY });
+                setIsPaymentModalOpen(true);
+              }}
               className="w-full py-5 bg-gradient-to-r from-rose-500 to-rose-700 text-white rounded-2xl font-black text-xl flex items-center justify-center gap-3 shadow-[0_8px_0_rgb(159,18,57)] hover:shadow-[0_6px_0_rgb(159,18,57)] hover:translate-y-[2px] active:shadow-none active:translate-y-[8px] transition-all uppercase tracking-wider"
             >
               এখনই পরিশোধ করুন <ArrowRight size={24} />
@@ -218,9 +227,20 @@ export default function StudentFees() {
               className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ 
+                opacity: 0, 
+                scale: 0, 
+                x: clickPos.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0), 
+                y: clickPos.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0) 
+              }}
+              animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+              exit={{ 
+                opacity: 0, 
+                scale: 0,
+                x: clickPos.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0), 
+                y: clickPos.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0) 
+              }}
+              transition={{ duration: 0.5, type: "spring", damping: 25, stiffness: 200 }}
               className="relative w-full max-w-xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-slate-100"
             >
               <div className="p-8 border-b border-slate-100 flex items-center justify-between bg-gradient-to-r from-rose-600 to-rose-700 text-white relative">

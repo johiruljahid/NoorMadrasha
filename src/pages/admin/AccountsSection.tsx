@@ -24,6 +24,7 @@ import { AccountEntry } from '../../types';
 export default function AccountsSection() {
   const [entries, setEntries] = useState<AccountEntry[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [clickPos, setClickPos] = useState({ x: 0, y: 0 });
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState<'all' | 'income' | 'expense'>('all');
   const [type, setType] = useState<'income' | 'expense'>('income');
@@ -116,7 +117,11 @@ export default function AccountsSection() {
         </div>
         <div className="flex gap-4">
           <button 
-            onClick={() => { setType('income'); setIsModalOpen(true); }} 
+            onClick={(e) => { 
+              setClickPos({ x: e.clientX, y: e.clientY });
+              setType('income'); 
+              setIsModalOpen(true); 
+            }} 
             className="btn-3d bg-gradient-to-br from-emerald-500 to-teal-600 text-white border-emerald-700 py-4 px-8 flex items-center gap-3 font-black uppercase tracking-widest text-xs shadow-xl shadow-emerald-200"
           >
             <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
@@ -125,7 +130,11 @@ export default function AccountsSection() {
             আয় যোগ করুন
           </button>
           <button 
-            onClick={() => { setType('expense'); setIsModalOpen(true); }} 
+            onClick={(e) => { 
+              setClickPos({ x: e.clientX, y: e.clientY });
+              setType('expense'); 
+              setIsModalOpen(true); 
+            }} 
             className="btn-3d bg-gradient-to-br from-rose-500 to-pink-600 text-white border-rose-700 py-4 px-8 flex items-center gap-3 font-black uppercase tracking-widest text-xs shadow-xl shadow-rose-200"
           >
             <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
@@ -278,9 +287,20 @@ export default function AccountsSection() {
               className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ 
+                opacity: 0, 
+                scale: 0, 
+                x: clickPos.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0), 
+                y: clickPos.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0) 
+              }}
+              animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+              exit={{ 
+                opacity: 0, 
+                scale: 0,
+                x: clickPos.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0), 
+                y: clickPos.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0) 
+              }}
+              transition={{ duration: 0.5, type: "spring", damping: 25, stiffness: 200 }}
               className="relative w-full max-w-xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden"
             >
               <div className={`p-8 border-b border-slate-100 flex items-center justify-between text-white ${type === 'income' ? 'bg-emerald-600' : 'bg-rose-600'}`}>

@@ -237,9 +237,9 @@ export default function About() {
             {/* Main Image Frame */}
             <div className="relative card-3d-neo p-8 bg-white/40 backdrop-blur-3xl border-white/40 overflow-hidden group shadow-[0_80px_150px_rgba(0,0,0,0.3)] border-8">
               <img 
-                src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&q=80&w=1000" 
-                alt="Madrasha Student Studying" 
-                className="rounded-[4rem] w-full h-[600px] object-cover shadow-2xl group-hover:scale-115 transition-transform duration-1000"
+                src="https://etimg.etb2bimg.com/photo/114457561.cms" 
+                alt="Experience" 
+                className="rounded-[4rem] w-full h-[600px] object-cover shadow-2xl group-hover:scale-110 transition-transform duration-1000"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 flex items-end p-20">

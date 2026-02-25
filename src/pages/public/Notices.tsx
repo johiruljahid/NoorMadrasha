@@ -19,6 +19,7 @@ export default function Notices() {
   const [notices, setNotices] = useState<Notice[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedNotice, setSelectedNotice] = useState<Notice | null>(null);
+  const [clickPos, setClickPos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     // Only show public notices
@@ -74,7 +75,10 @@ export default function Notices() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ y: -10 }}
-              onClick={() => setSelectedNotice(notice)}
+              onClick={(e) => {
+                setClickPos({ x: e.clientX, y: e.clientY });
+                setSelectedNotice(notice);
+              }}
               className="card-3d-neo p-8 cursor-pointer group bg-white/80 backdrop-blur-xl border-2 border-transparent hover:border-primary/20 transition-all"
             >
               <div className="flex justify-between items-start mb-6">
@@ -141,9 +145,20 @@ export default function Notices() {
               className="absolute inset-0 bg-slate-900/80 backdrop-blur-md"
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ 
+                opacity: 0, 
+                scale: 0, 
+                x: clickPos.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0), 
+                y: clickPos.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0) 
+              }}
+              animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+              exit={{ 
+                opacity: 0, 
+                scale: 0,
+                x: clickPos.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0), 
+                y: clickPos.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0) 
+              }}
+              transition={{ duration: 0.5, type: "spring", damping: 25, stiffness: 200 }}
               className="relative w-full max-w-3xl bg-white rounded-[3rem] shadow-2xl overflow-hidden"
             >
               <div className="p-8 sm:p-12">
