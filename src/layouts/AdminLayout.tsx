@@ -8,6 +8,7 @@ import {
   Wallet, 
   PieChart, 
   Bell, 
+  Heart,
   LogOut,
   Menu,
   X
@@ -21,14 +22,15 @@ export default function AdminLayout() {
   const location = useLocation();
 
   const navItems = [
-    { name: 'Dashboard', path: '/admin/dashboard', icon: LayoutDashboard },
-    { name: 'Students', path: '/admin/students', icon: Users },
-    { name: 'Teachers', path: '/admin/teachers', icon: GraduationCap },
-    { name: 'Attendance', path: '/admin/attendance', icon: UserCheck },
-    { name: 'Results', path: '/admin/results', icon: FileSpreadsheet },
-    { name: 'Fees', path: '/admin/fees', icon: Wallet },
-    { name: 'Accounts', path: '/admin/accounts', icon: PieChart },
-    { name: 'Notices', path: '/admin/notices', icon: Bell },
+    { name: 'ড্যাশবোর্ড', path: '/admin/dashboard', icon: LayoutDashboard },
+    { name: 'ছাত্র ব্যবস্থাপনা', path: '/admin/students', icon: Users },
+    { name: 'শিক্ষক ব্যবস্থাপনা', path: '/admin/teachers', icon: GraduationCap },
+    { name: 'উপস্থিতি', path: '/admin/attendance', icon: UserCheck },
+    { name: 'ফলাফল', path: '/admin/results', icon: FileSpreadsheet },
+    { name: 'ফি সংগ্রহ', path: '/admin/fees', icon: Wallet },
+    { name: 'হিসাব রক্ষণ', path: '/admin/accounts', icon: PieChart },
+    { name: 'নোটিশ', path: '/admin/notices', icon: Bell },
+    { name: 'অনুদান', path: '/admin/donations', icon: Heart },
   ];
 
   useEffect(() => {
@@ -66,8 +68,8 @@ export default function AdminLayout() {
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white font-bold text-xl">N</div>
               <div className="flex flex-col">
-                <span className="text-white font-islamic font-bold text-lg leading-tight">Admin Panel</span>
-                <span className="text-accent text-[10px] font-bold tracking-widest uppercase">Noor Madrasha</span>
+                <span className="text-white font-islamic font-bold text-lg leading-tight">অ্যাডমিন প্যানেল</span>
+                <span className="text-accent text-[10px] font-bold tracking-widest uppercase">নূর মাদ্রাসা</span>
               </div>
             </div>
             <button onClick={() => setIsSidebarOpen(false)} className="lg:hidden p-2 hover:bg-slate-800 rounded-lg">
@@ -97,7 +99,7 @@ export default function AdminLayout() {
               className="flex items-center gap-3 px-4 py-3 rounded-xl w-full text-slate-400 hover:bg-slate-800 hover:text-white transition-all"
             >
               <LogOut size={20} />
-              <span className="font-medium">Sign Out</span>
+              <span className="font-medium">লগ আউট</span>
             </button>
           </div>
         </div>
@@ -116,8 +118,8 @@ export default function AdminLayout() {
           
           <div className="flex items-center gap-4 ml-auto">
             <div className="hidden sm:flex flex-col items-end">
-              <span className="text-sm font-bold text-slate-900">Admin User</span>
-              <span className="text-xs text-slate-500">Super Admin</span>
+              <span className="text-sm font-bold text-slate-900">অ্যাডমিন ইউজার</span>
+              <span className="text-xs text-slate-500">সুপার অ্যাডমিন</span>
             </div>
             <div className="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-primary font-bold">
               A

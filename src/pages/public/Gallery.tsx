@@ -45,7 +45,7 @@ export default function Gallery() {
             <div className="inline-flex items-center gap-3 lg:gap-4 px-6 lg:px-10 py-3 lg:py-4 rounded-full bg-gradient-to-r from-primary-dark/60 to-transparent backdrop-blur-2xl border-2 border-accent/30 mb-8 lg:mb-12 floating-3d shadow-[0_30px_60px_rgba(0,0,0,0.5)]">
               <Camera size={20} className="text-accent animate-pulse lg:w-7 lg:h-7" />
               <span className="uppercase tracking-[0.2em] lg:tracking-[0.4em] font-black text-[10px] lg:text-sm text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
-                গ্যালারি • <span className="text-accent">OUR VISUAL JOURNEY</span>
+                গ্যালারি • <span className="text-accent">আমাদের দৃশ্যমান যাত্রা</span>
               </span>
             </div>
             <h1 className="text-5xl sm:text-7xl lg:text-9xl font-black text-white mb-8 lg:mb-10 leading-tight drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
@@ -174,10 +174,10 @@ export default function Gallery() {
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-16">
             {[
-              { label: 'Photos', val: '৫০০+', icon: ImageIcon, color: 'text-blue-500' },
-              { label: 'Events', val: '৫০+', icon: Sparkles, color: 'text-amber-500' },
-              { label: 'Memories', val: '১০০০+', icon: Heart, color: 'text-rose-500' },
-              { label: 'Awards', val: '১০+', icon: Award, color: 'text-emerald-500' },
+              { label: 'ছবি', val: '৫০০+', icon: ImageIcon, color: 'text-blue-500' },
+              { label: 'অনুষ্ঠান', val: '৫০+', icon: Sparkles, color: 'text-amber-500' },
+              { label: 'স্মৃতি', val: '১০০০+', icon: Heart, color: 'text-rose-500' },
+              { label: 'পুরস্কার', val: '১০+', icon: Award, color: 'text-emerald-500' },
             ].map((stat, i) => (
               <motion.div 
                 key={i}

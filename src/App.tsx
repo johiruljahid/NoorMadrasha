@@ -15,12 +15,19 @@ import Contact from './pages/public/Contact';
 import Gallery from './pages/public/Gallery';
 import StudentLogin from './pages/public/StudentLogin';
 import AdminLogin from './pages/public/AdminLogin';
+import VerifyStudent from './pages/public/VerifyStudent';
+import Donate from './pages/public/Donate';
+import Notices from './pages/public/Notices';
 
 // Components
 import ScrollToTop from './components/ScrollToTop';
 
 // Student Pages
 import StudentDashboard from './pages/student/Dashboard';
+import StudentProfile from './pages/student/Profile';
+import StudentFees from './pages/student/Fees';
+import StudentResults from './pages/student/Results';
+import StudentAttendance from './pages/student/Attendance';
 
 // Admin Pages
 import AdminDashboard from './pages/admin/Dashboard';
@@ -31,6 +38,7 @@ import ResultManagement from './pages/admin/ResultManagement';
 import FeesCollection from './pages/admin/FeesCollection';
 import AccountsSection from './pages/admin/AccountsSection';
 import NoticeManagement from './pages/admin/NoticeManagement';
+import DonationManagement from './pages/admin/DonationManagement';
 
 export default function App() {
   return (
@@ -46,6 +54,9 @@ export default function App() {
           <Route path="/admission" element={<Admission />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/verify-student" element={<VerifyStudent />} />
+          <Route path="/donate" element={<Donate />} />
+          <Route path="/notices" element={<Notices />} />
           <Route path="/student-access" element={<StudentLogin />} />
           <Route path="/admin-access" element={<AdminLogin />} />
         </Route>
@@ -53,6 +64,10 @@ export default function App() {
         {/* Student Routes */}
         <Route path="/student" element={<StudentLayout />}>
           <Route path="dashboard" element={<StudentDashboard />} />
+          <Route path="profile" element={<StudentProfile />} />
+          <Route path="fees" element={<StudentFees />} />
+          <Route path="results" element={<StudentResults />} />
+          <Route path="attendance" element={<StudentAttendance />} />
           <Route index element={<Navigate to="dashboard" replace />} />
         </Route>
 
@@ -66,6 +81,7 @@ export default function App() {
           <Route path="fees" element={<FeesCollection />} />
           <Route path="accounts" element={<AccountsSection />} />
           <Route path="notices" element={<NoticeManagement />} />
+          <Route path="donations" element={<DonationManagement />} />
           <Route index element={<Navigate to="dashboard" replace />} />
         </Route>
 

@@ -1,15 +1,16 @@
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
-import { Home, User, CreditCard, FileText, LogOut } from 'lucide-react';
+import { Home, User, CreditCard, FileText, LogOut, Calendar } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function StudentLayout() {
   const navigate = useNavigate();
 
   const navItems = [
-    { name: 'Home', path: '/student/dashboard', icon: Home },
-    { name: 'Profile', path: '/student/profile', icon: User },
-    { name: 'Fees', path: '/student/fees', icon: CreditCard },
-    { name: 'Results', path: '/student/results', icon: FileText },
+    { name: 'হোম', path: '/student/dashboard', icon: Home },
+    { name: 'প্রোফাইল', path: '/student/profile', icon: User },
+    { name: 'ফি সমূহ', path: '/student/fees', icon: CreditCard },
+    { name: 'ফলাফল', path: '/student/results', icon: FileText },
+    { name: 'উপস্থিতি', path: '/student/attendance', icon: Calendar },
   ];
 
   const handleLogout = () => {
@@ -25,7 +26,7 @@ export default function StudentLayout() {
         <div className="p-6 border-b border-primary-foreground/10">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-white text-primary rounded-lg flex items-center justify-center font-bold">N</div>
-            <span className="font-islamic font-bold text-lg">Student Portal</span>
+            <span className="font-islamic font-bold text-lg">ছাত্র পোর্টাল</span>
           </div>
         </div>
         
@@ -51,7 +52,7 @@ export default function StudentLayout() {
             className="flex items-center gap-3 px-4 py-3 rounded-xl w-full text-white/80 hover:bg-white/10 transition-all"
           >
             <LogOut size={20} />
-            <span className="font-medium">Logout</span>
+            <span className="font-medium">লগ আউট</span>
           </button>
         </div>
       </aside>
@@ -60,7 +61,7 @@ export default function StudentLayout() {
       <header className="md:hidden bg-primary text-white p-4 sticky top-0 z-40 flex justify-between items-center shadow-md">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-white text-primary rounded-lg flex items-center justify-center font-bold">N</div>
-          <span className="font-islamic font-bold">Noor Madrasha</span>
+          <span className="font-islamic font-bold">নূর মাদ্রাসা</span>
         </div>
         <button onClick={handleLogout} className="p-2 hover:bg-white/10 rounded-lg">
           <LogOut size={20} />

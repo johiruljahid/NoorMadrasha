@@ -86,7 +86,7 @@ export default function Teachers() {
             <div className="inline-flex items-center gap-3 lg:gap-4 px-6 lg:px-10 py-3 lg:py-4 rounded-full bg-gradient-to-r from-primary-dark/60 to-transparent backdrop-blur-2xl border-2 border-accent/30 mb-8 lg:mb-12 floating-3d shadow-[0_30px_60px_rgba(0,0,0,0.5)]">
               <UserCheck size={20} className="text-accent animate-pulse lg:w-7 lg:h-7" />
               <span className="uppercase tracking-[0.2em] lg:tracking-[0.3em] font-black text-[10px] lg:text-sm text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
-                আমাদের শিক্ষকবৃন্দ • <span className="text-accent">OUR TEACHERS</span>
+                আমাদের শিক্ষকবৃন্দ • <span className="text-accent">আমাদের শিক্ষক</span>
               </span>
             </div>
             <h1 className="text-5xl sm:text-7xl lg:text-9xl font-black text-white mb-8 lg:mb-10 leading-tight drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
@@ -166,7 +166,7 @@ export default function Teachers() {
 
                 <div className="mt-10 pt-8 border-t border-slate-100 flex items-center justify-between">
                   <div className="text-left">
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-1">Experience</p>
+                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-1">অভিজ্ঞতা</p>
                     <p className="font-black text-primary-dark text-xl">{teacher.experience}</p>
                   </div>
                   <div className="flex gap-1">
@@ -192,7 +192,7 @@ export default function Teachers() {
               viewport={{ once: true }}
               className="space-y-12"
             >
-              <div className="inline-block px-8 py-3 bg-primary/10 rounded-2xl text-primary text-xs font-black uppercase tracking-[0.4em] shadow-inner">WHY CHOOSE US</div>
+              <div className="inline-block px-8 py-3 bg-primary/10 rounded-2xl text-primary text-xs font-black uppercase tracking-[0.4em] shadow-inner">কেন আমাদের বেছে নেবেন</div>
               <h2 className="text-6xl font-black text-primary-dark leading-tight">আমাদের শিক্ষকদের <br /><span className="text-accent-dark text-3d-premium">অনন্য বৈশিষ্ট্যসমূহ</span></h2>
               <div className="w-32 h-3 bg-accent rounded-full shadow-lg"></div>
               

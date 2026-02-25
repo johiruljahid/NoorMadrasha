@@ -7,12 +7,15 @@ export default function PublicLayout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Home', bnName: 'হোম', path: '/' },
-    { name: 'About', bnName: 'আমাদের সম্পর্কে', path: '/about' },
-    { name: 'Teachers', bnName: 'শিক্ষকবৃন্দ', path: '/teachers' },
-    { name: 'Admission', bnName: 'ভর্তি তথ্য', path: '/admission' },
-    { name: 'Gallery', bnName: 'গ্যালারি', path: '/gallery' },
-    { name: 'Contact', bnName: 'যোগাযোগ', path: '/contact' },
+    { name: 'Home', bnName: 'হোম', path: '/', color: 'from-blue-500 to-blue-700', shadow: 'shadow-blue-200' },
+    { name: 'About', bnName: 'আমাদের সম্পর্কে', path: '/about', color: 'from-emerald-500 to-emerald-700', shadow: 'shadow-emerald-200' },
+    { name: 'Teachers', bnName: 'শিক্ষকবৃন্দ', path: '/teachers', color: 'from-purple-500 to-purple-700', shadow: 'shadow-purple-200' },
+    { name: 'Admission', bnName: 'ভর্তি তথ্য', path: '/admission', color: 'from-amber-500 to-amber-700', shadow: 'shadow-amber-200' },
+    { name: 'Gallery', bnName: 'গ্যালারি', path: '/gallery', color: 'from-rose-500 to-rose-700', shadow: 'shadow-rose-200' },
+    { name: 'Verify', bnName: 'শিক্ষার্থী যাচাই', path: '/verify-student', color: 'from-indigo-500 to-indigo-700', shadow: 'shadow-indigo-200' },
+    { name: 'Donate', bnName: 'অনুদান', path: '/donate', color: 'from-orange-500 to-orange-700', shadow: 'shadow-orange-200' },
+    { name: 'Notices', bnName: 'নোটিশ', path: '/notices', color: 'from-cyan-500 to-cyan-700', shadow: 'shadow-cyan-200' },
+    { name: 'Contact', bnName: 'যোগাযোগ', path: '/contact', color: 'from-slate-500 to-slate-700', shadow: 'shadow-slate-200' },
   ];
 
   return (
@@ -34,15 +37,24 @@ export default function PublicLayout() {
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-1">
+            <div className="hidden md:flex items-center space-x-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="px-4 py-2 rounded-lg text-slate-700 hover:text-primary font-medium transition-all duration-300 hover:bg-primary/5 flex flex-col items-center group"
+                  className={`
+                    px-4 py-2 rounded-xl text-slate-700 font-bold transition-all duration-300 
+                    hover:scale-110 hover:-translate-y-1 active:scale-95
+                    flex flex-col items-center group relative
+                  `}
                 >
-                  <span className="text-sm font-bold">{link.bnName}</span>
-                  <span className="text-[9px] uppercase tracking-wider opacity-0 group-hover:opacity-60 transition-opacity leading-none">{link.name}</span>
+                  <span className={`
+                    text-sm font-black px-3 py-1 rounded-lg transition-all
+                    group-hover:bg-gradient-to-r ${link.color} group-hover:text-white group-hover:shadow-lg ${link.shadow}
+                  `}>
+                    {link.bnName}
+                  </span>
+                  <span className="text-[8px] uppercase tracking-widest opacity-0 group-hover:opacity-60 transition-opacity leading-none mt-1">{link.name}</span>
                 </Link>
               ))}
               <div className="pl-4">
@@ -72,27 +84,31 @@ export default function PublicLayout() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-t border-slate-100 shadow-2xl overflow-hidden"
+              className="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-t border-slate-100 shadow-2xl overflow-y-auto max-h-[80vh]"
             >
-              <div className="px-4 pt-4 pb-8 space-y-2">
+              <div className="px-4 pt-4 pb-8 space-y-3">
                 {navLinks.map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}
                     onClick={() => setIsMenuOpen(false)}
-                    className="flex justify-between items-center px-4 py-4 text-base font-bold text-slate-700 hover:text-primary hover:bg-primary/5 rounded-xl transition-all"
+                    className={`
+                      flex justify-between items-center px-6 py-5 rounded-2xl transition-all
+                      bg-gradient-to-r ${link.color} text-white shadow-lg ${link.shadow}
+                      active:scale-95
+                    `}
                   >
-                    <span>{link.bnName}</span>
-                    <span className="text-xs font-medium opacity-50 uppercase tracking-widest">{link.name}</span>
+                    <span className="text-lg font-black">{link.bnName}</span>
+                    <span className="text-xs font-bold opacity-70 uppercase tracking-widest">{link.name}</span>
                   </Link>
                 ))}
                 <div className="pt-6 px-2">
                   <Link
                     to="/student-access"
                     onClick={() => setIsMenuOpen(false)}
-                    className="btn-premium-3d w-full py-4 flex justify-center items-center gap-3"
+                    className="btn-premium-3d w-full py-5 flex justify-center items-center gap-3"
                   >
-                    <span className="text-lg">ছাত্র প্রবেশ</span>
+                    <span className="text-xl font-black">ছাত্র প্রবেশ</span>
                     <span className="text-xs opacity-70 border-l border-white/30 pl-3">Student Login</span>
                   </Link>
                 </div>

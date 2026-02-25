@@ -1,8 +1,32 @@
-import { motion } from 'motion/react';
-import { ArrowRight, CheckCircle, GraduationCap, Users, Calendar, Bell, Sparkles, BookOpen, Heart, ShieldCheck, Globe, Star, Zap, Award } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { 
+  ArrowRight, 
+  CheckCircle, 
+  GraduationCap, 
+  Users, 
+  Calendar, 
+  Bell, 
+  Sparkles, 
+  BookOpen, 
+  Heart, 
+  ShieldCheck, 
+  Globe, 
+  Star, 
+  Zap, 
+  Award,
+  X,
+  Download,
+  FileText,
+  Paperclip,
+  ChevronRight
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { noticeService } from '../../services/noticeService';
+import { Notice } from '../../types';
 
 export default function Home() {
+  const [selectedNotice, setSelectedNotice] = useState<Notice | null>(null);
   const features = [
     { 
       title: 'মানসম্মত শিক্ষা',
@@ -27,11 +51,7 @@ export default function Home() {
     },
   ];
 
-  const notices = [
-    { title: '২০২৬ শিক্ষাবর্ষে নতুন ভর্তি চলছে', date: '২০ ফেব্রুয়ারি, ২০২৬', category: 'ভর্তি' },
-    { title: 'বার্ষিক ক্রীড়া প্রতিযোগিতা ও পুরস্কার বিতরণী', date: '১৮ ফেব্রুয়ারি, ২০২৬', category: 'ইভেন্ট' },
-    { title: 'রমজানের নতুন সময়সূচী ঘোষণা', date: '১৫ ফেব্রুয়ারি, ২০২৬', category: 'নোটিশ' },
-  ];
+  const notices = noticeService.getNotices().filter(n => n.isPublic).slice(0, 3);
 
   return (
     <div className="flex flex-col bg-slate-50 overflow-hidden">
@@ -40,8 +60,8 @@ export default function Home() {
         {/* Background Layers */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=2000" 
-            alt="Grand Mosque Library" 
+            src="https://images.unsplash.com/photo-1577891729319-f28b3c14ad53?auto=format&fit=crop&q=80&w=2000" 
+            alt="Madrasha Students Studying" 
             className="w-full h-full object-cover scale-105"
             referrerPolicy="no-referrer"
           />
@@ -67,7 +87,7 @@ export default function Home() {
             <div className="inline-flex items-center gap-3 lg:gap-4 py-3 lg:py-4 px-6 lg:px-10 rounded-full bg-gradient-to-r from-primary-dark/60 to-transparent backdrop-blur-2xl border-2 border-accent/30 mb-8 lg:mb-12 floating-3d shadow-[0_30px_60px_rgba(0,0,0,0.5)] mx-auto lg:mx-0">
                 <Sparkles size={20} className="text-accent animate-pulse lg:w-7 lg:h-7" /> 
                 <span className="font-black tracking-[0.2em] lg:tracking-[0.3em] text-xs lg:text-lg uppercase text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
-                  নূর মাদ্রাসায় স্বাগতম • <span className="text-accent">The Torch of Knowledge</span>
+                  নূর মাদ্রাসায় স্বাগতম • <span className="text-accent">জ্ঞানের আলোকবর্তিকা</span>
                 </span>
               </div>
               
@@ -208,8 +228,8 @@ export default function Home() {
             >
               <div className="aspect-[4/5] rounded-3xl lg:rounded-[5rem] overflow-hidden shadow-[0_80px_150px_rgba(0,0,0,0.8)] border-[8px] lg:border-[16px] border-white/5 relative group">
                 <img 
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1000" 
-                  alt="Principal" 
+                  src="https://images.unsplash.com/photo-1585858500266-9782833c76ef?auto=format&fit=crop&q=80&w=1000" 
+                  alt="Madrasha Teacher Teaching" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   referrerPolicy="no-referrer"
                 />
@@ -238,7 +258,7 @@ export default function Home() {
               transition={{ duration: 1 }}
               className="order-1 lg:order-2 text-center lg:text-left"
             >
-              <span className="text-accent font-black uppercase tracking-[0.4em] lg:tracking-[0.6em] text-[10px] lg:text-sm mb-6 lg:mb-10 block shadow-accent/20 drop-shadow-xl">অধ্যক্ষের বাণী | MESSAGE</span>
+              <span className="text-accent font-black uppercase tracking-[0.4em] lg:tracking-[0.6em] text-[10px] lg:text-sm mb-6 lg:mb-10 block shadow-accent/20 drop-shadow-xl">অধ্যক্ষের বাণী | বাণী</span>
               <h2 className="text-4xl sm:text-6xl lg:text-8xl text-white mb-8 lg:mb-14 font-black leading-tight drop-shadow-2xl">প্রজ্ঞা ও ঈমানের <br /><span className="text-accent text-3d-premium">পথে অগ্রযাত্রা</span></h2>
               <div className="space-y-6 lg:space-y-12 text-white/70 text-lg lg:text-3xl leading-relaxed font-bold">
                 <p>আসসালামু আলাইকুম। নূর মাদ্রাসায় আমরা বিশ্বাস করি যে প্রতিটি শিশু আল্লাহর পক্ষ থেকে একটি আমানত। আমাদের লক্ষ্য হলো তাদের এমনভাবে গড়ে তোলা যাতে তারা ইহকাল ও পরকালে সফল হতে পারে।</p>
@@ -268,6 +288,7 @@ export default function Home() {
               <motion.div 
                 key={i} 
                 whileHover={{ x: 10, scale: 1.02 }}
+                onClick={() => setSelectedNotice(n)}
                 className="card-3d-neo flex flex-col sm:flex-row items-center gap-6 lg:gap-12 p-6 lg:p-12 cursor-pointer group border-2 lg:border-4 border-transparent hover:border-primary/20 bg-white/90 backdrop-blur-xl text-center sm:text-left"
               >
                 <div className="w-24 h-24 lg:w-32 lg:h-32 bg-slate-100 rounded-2xl lg:rounded-[2.5rem] flex flex-col items-center justify-center text-primary shrink-0 shadow-inner group-hover:bg-primary group-hover:text-white transition-all duration-700">
@@ -276,7 +297,9 @@ export default function Home() {
                 </div>
                 <div className="flex-grow">
                   <div className="flex items-center justify-center sm:justify-start gap-3 lg:gap-6 mb-2 lg:mb-4">
-                    <span className="px-4 lg:px-6 py-1 lg:py-2 bg-primary/10 text-primary text-[8px] lg:text-xs font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] rounded-full shadow-inner">{n.category}</span>
+                    <span className="px-4 lg:px-6 py-1 lg:py-2 bg-primary/10 text-primary text-[8px] lg:text-xs font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] rounded-full shadow-inner">
+                      {n.category === 'exam' ? 'পরীক্ষা' : n.category === 'holiday' ? 'ছুটি' : n.category === 'admission' ? 'ভর্তি' : 'সাধারণ'}
+                    </span>
                   </div>
                   <h4 className="text-xl lg:text-4xl font-black text-slate-900 group-hover:text-primary transition-colors leading-tight">{n.title}</h4>
                 </div>
@@ -320,6 +343,97 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Notice Detail Modal */}
+      <AnimatePresence>
+        {selectedNotice && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedNotice(null)}
+              className="absolute inset-0 bg-slate-900/80 backdrop-blur-md"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative w-full max-w-3xl bg-white rounded-[3rem] shadow-2xl overflow-hidden"
+            >
+              <div className="p-8 sm:p-12">
+                <div className="flex justify-between items-start mb-10">
+                  <div className="flex items-center gap-6">
+                    <div className={`w-20 h-20 rounded-3xl flex items-center justify-center shadow-xl ${
+                      selectedNotice.category === 'exam' ? 'bg-rose-500 text-white' :
+                      selectedNotice.category === 'holiday' ? 'bg-emerald-500 text-white' :
+                      'bg-primary text-white'
+                    }`}>
+                      <Bell size={40} />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-4 mb-2">
+                        <span className={`px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-sm ${
+                          selectedNotice.category === 'exam' ? 'bg-rose-100 text-rose-600' :
+                          selectedNotice.category === 'holiday' ? 'bg-emerald-100 text-emerald-600' :
+                          'bg-primary/10 text-primary'
+                        }`}>
+                          {selectedNotice.category === 'exam' ? 'পরীক্ষা' : 
+                           selectedNotice.category === 'holiday' ? 'ছুটি' : 
+                           selectedNotice.category === 'admission' ? 'ভর্তি' : 'সাধারণ'}
+                        </span>
+                        <span className="text-xs font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                          <Calendar size={16} /> {selectedNotice.date}
+                        </span>
+                      </div>
+                      <h2 className="text-3xl sm:text-4xl font-black text-slate-900 leading-tight">{selectedNotice.title}</h2>
+                    </div>
+                  </div>
+                  <button onClick={() => setSelectedNotice(null)} className="p-4 bg-slate-50 text-slate-400 hover:text-rose-500 hover:bg-rose-50 rounded-2xl transition-all">
+                    <X size={28} />
+                  </button>
+                </div>
+
+                <div className="prose prose-slate max-w-none mb-12">
+                  <p className="text-xl text-slate-600 leading-relaxed font-medium whitespace-pre-wrap">
+                    {selectedNotice.content}
+                  </p>
+                </div>
+
+                {selectedNotice.fileName && (
+                  <div className="p-8 bg-slate-50 rounded-[2rem] border-2 border-dashed border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary shadow-sm border border-slate-100">
+                        <FileText size={32} />
+                      </div>
+                      <div>
+                        <p className="text-slate-900 font-black text-lg">{selectedNotice.fileName}</p>
+                        <p className="text-slate-400 font-bold text-sm uppercase tracking-widest">সংযুক্ত ফাইল</p>
+                      </div>
+                    </div>
+                    <a 
+                      href={selectedNotice.fileUrl} 
+                      download
+                      className="btn-premium-3d py-4 px-10 flex items-center gap-3 text-lg"
+                    >
+                      <Download size={24} /> ডাউনলোড করুন
+                    </a>
+                  </div>
+                )}
+
+                <div className="mt-12 pt-8 border-t border-slate-100 flex justify-center">
+                  <button 
+                    onClick={() => setSelectedNotice(null)}
+                    className="text-slate-400 font-black uppercase tracking-[0.3em] text-xs hover:text-primary transition-colors"
+                  >
+                    বন্ধ করুন
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

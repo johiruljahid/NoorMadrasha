@@ -90,6 +90,49 @@
   .text-3d-premium {
     @apply drop-shadow-[0_5px_15px_rgba(0,0,0,0.2)];
   }
+
+  /* Global Interactive Zoom & 3D Effect */
+  a, button, input, select, textarea, .interactive-zoom, .nav-item, li {
+    @apply transition-all duration-300 transform-gpu;
+  }
+
+  a:hover, button:hover, .interactive-zoom:hover, .nav-item:hover {
+    @apply scale-[1.08] -translate-y-1 drop-shadow-xl;
+  }
+
+  /* Specific zoom for headings and list items to feel more "modern" */
+  h1:hover, h2:hover, h3:hover, p:hover, span:hover {
+    @apply scale-[1.02] transition-transform duration-300 cursor-default;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    @apply scale-[1.03] ring-4 ring-primary/10 -translate-y-0.5 shadow-lg;
+  }
+
+  /* Smart Colorful Modern Buttons */
+  .btn-smart-primary {
+    @apply relative overflow-hidden px-8 py-4 rounded-2xl font-black uppercase tracking-[0.15em] text-xs transition-all duration-300 transform-gpu active:scale-95 shadow-lg bg-gradient-to-br from-primary to-primary-dark text-white border-b-4 border-primary-dark hover:shadow-primary/40 hover:-translate-y-1;
+  }
+
+  .btn-smart-emerald {
+    @apply relative overflow-hidden px-8 py-4 rounded-2xl font-black uppercase tracking-[0.15em] text-xs transition-all duration-300 transform-gpu active:scale-95 shadow-lg bg-gradient-to-br from-emerald-500 to-emerald-700 text-white border-b-4 border-emerald-800 hover:shadow-emerald-500/40 hover:-translate-y-1;
+  }
+
+  .btn-smart-rose {
+    @apply relative overflow-hidden px-8 py-4 rounded-2xl font-black uppercase tracking-[0.15em] text-xs transition-all duration-300 transform-gpu active:scale-95 shadow-lg bg-gradient-to-br from-rose-500 to-rose-700 text-white border-b-4 border-rose-800 hover:shadow-rose-500/40 hover:-translate-y-1;
+  }
+
+  .btn-smart-amber {
+    @apply relative overflow-hidden px-8 py-4 rounded-2xl font-black uppercase tracking-[0.15em] text-xs transition-all duration-300 transform-gpu active:scale-95 shadow-lg bg-gradient-to-br from-amber-400 to-amber-600 text-white border-b-4 border-amber-700 hover:shadow-amber-500/40 hover:-translate-y-1;
+  }
+
+  .btn-smart-indigo {
+    @apply relative overflow-hidden px-8 py-4 rounded-2xl font-black uppercase tracking-[0.15em] text-xs transition-all duration-300 transform-gpu active:scale-95 shadow-lg bg-gradient-to-br from-indigo-500 to-indigo-700 text-white border-b-4 border-indigo-800 hover:shadow-indigo-500/40 hover:-translate-y-1;
+  }
+
+  .btn-smart-white {
+    @apply relative overflow-hidden px-8 py-4 rounded-2xl font-black uppercase tracking-[0.15em] text-xs transition-all duration-300 transform-gpu active:scale-95 shadow-lg bg-white text-primary border-b-4 border-slate-200 hover:shadow-slate-200/40 hover:-translate-y-1;
+  }
 }
 
 /* Custom Scrollbar */

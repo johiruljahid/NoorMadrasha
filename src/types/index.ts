@@ -71,6 +71,8 @@ export interface Notice {
   title: string;
   content: string;
   date: string;
-  category: 'general' | 'exam' | 'holiday';
+  category: 'general' | 'exam' | 'holiday' | 'admission';
   isPublic: boolean;
+  fileUrl?: string;
+  fileName?: string;
 }

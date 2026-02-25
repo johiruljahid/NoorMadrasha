@@ -26,37 +26,85 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center px-4 py-12 bg-slate-900">
-      <div className="absolute inset-0 opacity-10 islamic-pattern pointer-events-none"></div>
+    <div className="min-h-screen flex items-center justify-center px-4 py-12 bg-[#0a0f18] relative overflow-hidden">
+      {/* Animated 3D Background Elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.2, 1],
+            rotate: [0, 90, 0],
+            x: [0, 100, 0],
+            y: [0, 50, 0]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-24 -left-24 w-[30rem] h-[30rem] bg-primary/20 rounded-full blur-[120px]"
+        />
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.5, 1],
+            rotate: [0, -120, 0],
+            x: [0, -150, 0],
+            y: [0, 100, 0]
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/2 -right-32 w-[40rem] h-[40rem] bg-accent/10 rounded-full blur-[150px]"
+        />
+        <motion.div 
+          animate={{ 
+            y: [0, -20, 0],
+            rotate: [0, 10, 0]
+          }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 right-1/4 w-32 h-32 bg-secondary/20 rounded-[2rem] blur-2xl border border-white/10"
+        />
+      </div>
+
+      <div className="absolute inset-0 opacity-5 islamic-pattern pointer-events-none"></div>
       
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-md"
+        initial={{ opacity: 0, scale: 0.9, y: 30 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ type: "spring", damping: 20, stiffness: 100 }}
+        className="w-full max-w-md relative z-10"
       >
-        <div className="text-center mb-10">
-          <div className="w-20 h-20 bg-primary rounded-3xl flex items-center justify-center text-white font-bold text-3xl mx-auto mb-6 shadow-2xl shadow-primary/40">
-            <ShieldCheck size={40} />
-          </div>
-          <h1 className="text-3xl font-islamic text-white mb-2">Admin Portal</h1>
-          <p className="text-slate-400">Restricted access for authorized personnel only</p>
+        {/* Floating 3D Icon Container */}
+        <div className="relative mb-12">
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="w-24 h-24 bg-gradient-to-br from-primary to-primary-dark rounded-[2.5rem] flex items-center justify-center text-white mx-auto shadow-[0_20px_50px_rgba(var(--primary-rgb),0.4)] border-4 border-white/10 relative z-20"
+          >
+            <ShieldCheck size={48} />
+          </motion.div>
+          {/* Decorative Rings */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-2 border-primary/20 rounded-full animate-ping opacity-20"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 border border-primary/10 rounded-full opacity-10"></div>
         </div>
 
-        <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 sm:p-10 rounded-3xl shadow-2xl">
-          <form onSubmit={handleLogin} className="space-y-6">
-            <div>
-              <label className="block text-sm font-bold text-slate-300 mb-2">Admin Access Code</label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-500">
-                  <Lock size={18} />
+        <div className="text-center mb-10">
+          <h1 className="text-4xl font-black text-white mb-3 tracking-tight uppercase">অ্যাডমিন পোর্টাল</h1>
+          <div className="flex items-center justify-center gap-2">
+            <div className="h-px w-8 bg-white/20"></div>
+            <p className="text-slate-400 font-bold text-xs uppercase tracking-[0.3em]">সুরক্ষিত প্রবেশাধিকার</p>
+            <div className="h-px w-8 bg-white/20"></div>
+          </div>
+        </div>
+
+        <div className="card-3d p-10 bg-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_30px_100px_rgba(0,0,0,0.5)]">
+          <form onSubmit={handleLogin} className="space-y-8">
+            <div className="space-y-3">
+              <label className="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-2">অ্যাডমিন অ্যাক্সেস কোড</label>
+              <div className="relative group">
+                <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none text-slate-500 group-focus-within:text-primary transition-colors">
+                  <Lock size={20} />
                 </div>
                 <input
                   type="password"
                   required
                   value={accessCode}
                   onChange={(e) => setAccessCode(e.target.value)}
-                  placeholder="Enter secret code"
-                  className="w-full pl-12 pr-4 py-4 rounded-xl bg-white/10 border border-white/10 text-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-slate-600"
+                  placeholder="••••••••"
+                  className="w-full pl-14 pr-6 py-5 rounded-2xl bg-white/5 border-2 border-white/5 text-white focus:border-primary/50 focus:bg-white/10 outline-none transition-all placeholder:text-slate-700 font-black tracking-widest text-lg shadow-inner"
                 />
               </div>
             </div>
@@ -64,16 +112,43 @@ export default function AdminLogin() {
             <button
               type="submit"
               disabled={isLoading}
-              className="btn-primary w-full py-4 text-lg"
+              className="btn-3d w-full py-5 bg-primary text-white border-primary-dark font-black uppercase tracking-[0.2em] text-sm hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 shadow-[0_15px_30px_rgba(var(--primary-rgb),0.3)]"
             >
-              {isLoading ? 'Verifying...' : 'Unlock Dashboard'}
+              {isLoading ? (
+                <>
+                  <motion.div 
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full"
+                  />
+                  যাচাই করা হচ্ছে...
+                </>
+              ) : (
+                <>
+                  <ShieldCheck size={20} />
+                  ড্যাশবোর্ড আনলক করুন
+                </>
+              )}
             </button>
           </form>
 
-          <div className="mt-8 text-center">
-            <p className="text-xs text-slate-500 uppercase tracking-widest font-bold">Noor Madrasha Security System</p>
+          <div className="mt-10 pt-8 border-t border-white/5 text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10">
+              <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+              <span className="text-[10px] text-slate-400 font-black uppercase tracking-widest">সিস্টেম অনলাইন</span>
+            </div>
           </div>
         </div>
+
+        {/* Footer Info */}
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="mt-8 text-center text-[10px] text-slate-500 font-bold uppercase tracking-[0.4em]"
+        >
+          নূর মাদ্রাসা সিকিউরিটি সিস্টেম v২.০
+        </motion.p>
       </motion.div>
     </div>
   );

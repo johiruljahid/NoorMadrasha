@@ -47,7 +47,7 @@ export default function About() {
             <div className="inline-flex items-center gap-3 lg:gap-4 px-6 lg:px-10 py-3 lg:py-4 rounded-full bg-gradient-to-r from-primary-dark/60 to-transparent backdrop-blur-2xl border-2 border-accent/30 mb-8 lg:mb-12 floating-3d shadow-[0_30px_60px_rgba(0,0,0,0.5)]">
               <Sparkles size={20} className="text-accent animate-pulse lg:w-7 lg:h-7" />
               <span className="uppercase tracking-[0.2em] lg:tracking-[0.4em] font-black text-[10px] lg:text-sm text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
-                আমাদের সম্পর্কে • <span className="text-accent">OUR LEGACY</span>
+                আমাদের সম্পর্কে • <span className="text-accent">আমাদের ঐতিহ্য</span>
               </span>
             </div>
             <h1 className="text-5xl sm:text-7xl lg:text-8xl md:text-[10rem] font-black text-white mb-8 lg:mb-10 leading-tight drop-shadow-[0_30px_60px_rgba(0,0,0,0.6)]">
@@ -77,7 +77,7 @@ export default function About() {
               <Target size={56} />
             </div>
             <h2 className="text-6xl font-black text-primary-dark mb-6">আমাদের লক্ষ্য</h2>
-            <p className="text-accent text-xs font-black tracking-[0.5em] uppercase mb-10 opacity-60">Our Strategic Mission</p>
+            <p className="text-accent text-xs font-black tracking-[0.5em] uppercase mb-10 opacity-60">আমাদের কৌশলগত লক্ষ্য</p>
             <p className="text-slate-600 text-2xl leading-relaxed font-bold">
               আমাদের লক্ষ্য হলো শিক্ষার্থীদের এমনভাবে গড়ে তোলা যাতে তারা দ্বীনি ও দুনিয়াবী উভয় শিক্ষায় পারদর্শী হয়ে দেশ ও জাতির কল্যাণে কাজ করতে পারে। আমরা চাই প্রতিটি শিক্ষার্থী যেন একজন আদর্শ মানুষ হিসেবে সমাজে প্রতিষ্ঠিত হয়।
             </p>
@@ -96,7 +96,7 @@ export default function About() {
               <Eye size={56} />
             </div>
             <h2 className="text-6xl font-black text-primary-dark mb-6">আমাদের ভিশন</h2>
-            <p className="text-accent text-xs font-black tracking-[0.5em] uppercase mb-10 opacity-60">Our Future Vision</p>
+            <p className="text-accent text-xs font-black tracking-[0.5em] uppercase mb-10 opacity-60">আমাদের ভবিষ্যৎ দৃষ্টিভঙ্গি</p>
             <p className="text-slate-600 text-2xl leading-relaxed font-bold">
               একটি আধুনিক ও যুগোপযোগী ইসলামী শিক্ষা ব্যবস্থা গড়ে তোলা, যেখানে কুরআন-সুন্নাহর শিক্ষার পাশাপাশি বিজ্ঞান ও প্রযুক্তির সমন্বয় থাকবে। আমরা এমন একটি প্রজন্ম তৈরি করতে চাই যারা নৈতিকতা ও মেধার দিক থেকে হবে অনন্য।
             </p>
@@ -115,7 +115,7 @@ export default function About() {
               viewport={{ once: true }}
             >
               <h2 className="text-7xl font-black text-primary-dark mb-8">আমাদের মূল বৈশিষ্ট্যসমূহ</h2>
-              <p className="text-accent text-sm font-black tracking-[0.6em] uppercase opacity-80">Core Values & Unique Features</p>
+              <p className="text-accent text-sm font-black tracking-[0.6em] uppercase opacity-80">মূল মূল্যবোধ ও অনন্য বৈশিষ্ট্য</p>
               <div className="w-40 h-3 bg-accent mx-auto mt-12 rounded-full shadow-[0_10px_30px_rgba(242,125,38,0.5)]"></div>
             </motion.div>
           </div>
@@ -162,28 +162,62 @@ export default function About() {
         
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-20">
-            {[
-              { icon: Users, label: 'মোট শিক্ষার্থী', enLabel: 'Total Students', value: '৫০০+', color: 'text-blue-400' },
-              { icon: GraduationCap, label: 'অভিজ্ঞ শিক্ষক', enLabel: 'Expert Teachers', value: '৩০+', color: 'text-emerald-400' },
-              { icon: Lightbulb, label: 'কোর্সসমূহ', enLabel: 'Total Courses', value: '১২+', color: 'text-amber-400' },
-              { icon: Star, label: 'সাফল্যের হার', enLabel: 'Success Rate', value: '১০০%', color: 'text-rose-400' },
-            ].map((stat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15, type: "spring", damping: 12 }}
-                className="text-center group"
-              >
-                <div className="w-28 h-28 bg-white/5 rounded-[3rem] flex items-center justify-center text-accent mx-auto mb-10 backdrop-blur-3xl border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.4)] group-hover:bg-accent group-hover:text-primary-dark transition-all duration-700 group-hover:scale-115 group-hover:rotate-12">
-                  <stat.icon size={56} />
-                </div>
-                <div className="text-7xl font-black text-white mb-4 drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]">{stat.value}</div>
-                <div className="text-accent font-black text-2xl mb-2">{stat.label}</div>
-                <div className="text-white/40 text-[10px] font-black tracking-[0.5em] uppercase">{stat.enLabel}</div>
-              </motion.div>
-            ))}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0, type: "spring", damping: 12 }}
+              className="text-center group"
+            >
+              <div className="w-28 h-28 bg-white/5 rounded-[3rem] flex items-center justify-center text-accent mx-auto mb-10 backdrop-blur-3xl border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.4)] group-hover:bg-accent group-hover:text-primary-dark transition-all duration-700 group-hover:scale-115 group-hover:rotate-12">
+                <Users size={56} />
+              </div>
+              <div className="text-7xl font-black text-white mb-4 drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]">৫০০+</div>
+              <div className="text-accent font-black text-2xl mb-2">মোট শিক্ষার্থী</div>
+              <div className="text-white/40 text-[10px] font-black tracking-[0.5em] uppercase">মোট শিক্ষার্থী</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15, type: "spring", damping: 12 }}
+              className="text-center group"
+            >
+              <div className="w-28 h-28 bg-white/5 rounded-[3rem] flex items-center justify-center text-accent mx-auto mb-10 backdrop-blur-3xl border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.4)] group-hover:bg-accent group-hover:text-primary-dark transition-all duration-700 group-hover:scale-115 group-hover:rotate-12">
+                <GraduationCap size={56} />
+              </div>
+              <div className="text-7xl font-black text-white mb-4 drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]">৩০+</div>
+              <div className="text-accent font-black text-2xl mb-2">অভিজ্ঞ শিক্ষক</div>
+              <div className="text-white/40 text-[10px] font-black tracking-[0.5em] uppercase">দক্ষ শিক্ষকবৃন্দ</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, type: "spring", damping: 12 }}
+              className="text-center group"
+            >
+              <div className="w-28 h-28 bg-white/5 rounded-[3rem] flex items-center justify-center text-accent mx-auto mb-10 backdrop-blur-3xl border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.4)] group-hover:bg-accent group-hover:text-primary-dark transition-all duration-700 group-hover:scale-115 group-hover:rotate-12">
+                <Lightbulb size={56} />
+              </div>
+              <div className="text-7xl font-black text-white mb-4 drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]">১২+</div>
+              <div className="text-accent font-black text-2xl mb-2">কোর্সসমূহ</div>
+              <div className="text-white/40 text-[10px] font-black tracking-[0.5em] uppercase">মোট কোর্স</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.45, type: "spring", damping: 12 }}
+              className="text-center group"
+            >
+              <div className="w-28 h-28 bg-white/5 rounded-[3rem] flex items-center justify-center text-accent mx-auto mb-10 backdrop-blur-3xl border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.4)] group-hover:bg-accent group-hover:text-primary-dark transition-all duration-700 group-hover:scale-115 group-hover:rotate-12">
+                <Star size={56} />
+              </div>
+              <div className="text-7xl font-black text-white mb-4 drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]">১০০%</div>
+              <div className="text-accent font-black text-2xl mb-2">সাফল্যের হার</div>
+              <div className="text-white/40 text-[10px] font-black tracking-[0.5em] uppercase">সাফল্যের হার</div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -253,7 +287,7 @@ export default function About() {
           >
             <div className="inline-flex items-center gap-4 px-8 py-3 bg-primary/10 rounded-2xl text-primary text-sm font-black uppercase tracking-[0.4em] shadow-inner border border-primary/10">
               <Star size={24} className="text-accent animate-pulse" />
-              <span>OUR JOURNEY</span>
+              <span>আমাদের যাত্রা</span>
             </div>
             <h2 className="text-7xl md:text-8xl font-black text-primary-dark leading-tight">আমাদের দীর্ঘ পথচলা ও <br /><span className="text-accent text-3d-premium">সাফল্যের ইতিহাস</span></h2>
             <div className="w-40 h-3 bg-accent rounded-full shadow-xl"></div>
@@ -281,7 +315,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center mb-32">
             <h2 className="text-7xl font-black text-white mb-8">আমরা যা বিশ্বাস করি</h2>
-            <p className="text-accent text-sm font-black tracking-[0.6em] uppercase opacity-80">Our Core Beliefs & Philosophy</p>
+            <p className="text-accent text-sm font-black tracking-[0.6em] uppercase opacity-80">আমাদের মূল বিশ্বাস ও দর্শন</p>
             <div className="w-40 h-3 bg-accent mx-auto mt-12 rounded-full shadow-2xl"></div>
           </div>
           

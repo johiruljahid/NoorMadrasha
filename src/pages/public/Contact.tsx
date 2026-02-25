@@ -37,7 +37,7 @@ export default function Contact() {
             <div className="inline-flex items-center gap-3 lg:gap-4 px-6 lg:px-10 py-3 lg:py-4 rounded-full bg-gradient-to-r from-primary-dark/60 to-transparent backdrop-blur-2xl border-2 border-accent/30 mb-8 lg:mb-12 floating-3d shadow-[0_30px_60px_rgba(0,0,0,0.5)]">
               <Headphones size={20} className="text-accent animate-pulse lg:w-7 lg:h-7" />
               <span className="uppercase tracking-[0.2em] lg:tracking-[0.4em] font-black text-[10px] lg:text-sm text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
-                যোগাযোগ • <span className="text-accent">GET IN TOUCH</span>
+                যোগাযোগ • <span className="text-accent">আমাদের সাথে যুক্ত হোন</span>
               </span>
             </div>
             <h1 className="text-5xl sm:text-7xl lg:text-9xl font-black text-white mb-8 lg:mb-10 leading-tight drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
@@ -58,10 +58,10 @@ export default function Contact() {
           <div className="lg:col-span-4 space-y-12">
             <div className="grid grid-cols-1 gap-10">
               {[
-                { icon: MapPin, title: 'অবস্থান', bn: '১২৩ ইসলামিক সেন্টার রোড, ঢাকা', en: 'Our Location', color: 'bg-primary' },
-                { icon: Phone, title: 'ফোন নম্বর', bn: '+৮৮০ ১২৩৪ ৫৬৭৮৯০', en: 'Call Us Anytime', color: 'bg-secondary' },
-                { icon: Mail, title: 'ইমেইল', bn: 'info@noormadrasha.com', en: 'Drop a Line', color: 'bg-accent' },
-                { icon: Clock, title: 'অফিস সময়', bn: 'শনি - বৃহস্পতি: ৮টা - ৪টা', en: 'Working Hours', color: 'bg-emerald-500' },
+                { icon: MapPin, title: 'অবস্থান', bn: '১২৩ ইসলামিক সেন্টার রোড, ঢাকা', en: 'আমাদের অবস্থান', color: 'bg-primary' },
+                { icon: Phone, title: 'ফোন নম্বর', bn: '+৮৮০ ১২৩৪ ৫৬৭৮৯০', en: 'যেকোনো সময় কল করুন', color: 'bg-secondary' },
+                { icon: Mail, title: 'ইমেইল', bn: 'info@noormadrasha.com', en: 'বার্তা পাঠান', color: 'bg-accent' },
+                { icon: Clock, title: 'অফিস সময়', bn: 'শনি - বৃহস্পতি: ৮টা - ৪টা', en: 'কাজের সময়', color: 'bg-emerald-500' },
               ].map((item, i) => (
                 <motion.div 
                   key={i}
@@ -130,7 +130,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h2 className="text-3xl lg:text-6xl font-black text-primary-dark">সরাসরি বার্তা পাঠান</h2>
-                  <p className="text-accent text-[10px] lg:text-sm font-black tracking-[0.2em] lg:tracking-[0.4em] mt-2 lg:mt-3 uppercase">Send us a Premium Message</p>
+                  <p className="text-accent text-[10px] lg:text-sm font-black tracking-[0.2em] lg:tracking-[0.4em] mt-2 lg:mt-3 uppercase">আমাদের একটি প্রিমিয়াম বার্তা পাঠান</p>
                 </div>
               </div>
 
@@ -139,7 +139,7 @@ export default function Contact() {
                   <div className="space-y-4 lg:space-y-5">
                     <label className="text-xs lg:text-sm font-black text-slate-700 flex justify-between uppercase tracking-[0.1em] lg:tracking-[0.2em]">
                       <span>আপনার নাম</span>
-                      <span className="text-slate-300">Your Name</span>
+                      <span className="text-slate-300">আপনার নাম</span>
                     </label>
                     <div className="relative group">
                       <input type="text" required className="input-field py-4 lg:py-6 px-6 lg:px-10 bg-slate-50 border-2 border-slate-100 focus:bg-white focus:ring-8 focus:ring-accent/10 transition-all text-lg lg:text-2xl font-bold w-full rounded-2xl lg:rounded-3xl" placeholder="আব্দুল্লাহ" />
@@ -151,7 +151,7 @@ export default function Contact() {
                   <div className="space-y-4 lg:space-y-5">
                     <label className="text-xs lg:text-sm font-black text-slate-700 flex justify-between uppercase tracking-[0.1em] lg:tracking-[0.2em]">
                       <span>ইমেইল</span>
-                      <span className="text-slate-300">Email Address</span>
+                      <span className="text-slate-300">ইমেইল ঠিকানা</span>
                     </label>
                     <div className="relative group">
                       <input type="email" required className="input-field py-4 lg:py-6 px-6 lg:px-10 bg-slate-50 border-2 border-slate-100 focus:bg-white focus:ring-8 focus:ring-accent/10 transition-all text-lg lg:text-2xl font-bold w-full rounded-2xl lg:rounded-3xl" placeholder="example@mail.com" />
@@ -165,7 +165,7 @@ export default function Contact() {
                 <div className="space-y-4 lg:space-y-5">
                   <label className="text-xs lg:text-sm font-black text-slate-700 flex justify-between uppercase tracking-[0.1em] lg:tracking-[0.2em]">
                     <span>বিষয়</span>
-                    <span className="text-slate-300">Subject</span>
+                    <span className="text-slate-300">বিষয়</span>
                   </label>
                   <div className="relative group">
                     <input type="text" required className="input-field py-4 lg:py-6 px-6 lg:px-10 bg-slate-50 border-2 border-slate-100 focus:bg-white focus:ring-8 focus:ring-accent/10 transition-all text-lg lg:text-2xl font-bold w-full rounded-2xl lg:rounded-3xl" placeholder="কিভাবে আমরা আপনাকে সাহায্য করতে পারি?" />
@@ -178,7 +178,7 @@ export default function Contact() {
                 <div className="space-y-4 lg:space-y-5">
                   <label className="text-xs lg:text-sm font-black text-slate-700 flex justify-between uppercase tracking-[0.1em] lg:tracking-[0.2em]">
                     <span>আপনার বার্তা</span>
-                    <span className="text-slate-300">Your Message</span>
+                    <span className="text-slate-300">আপনার বার্তা</span>
                   </label>
                   <textarea rows={6} required className="input-field py-6 lg:py-8 px-6 lg:px-10 bg-slate-50 border-2 border-slate-100 focus:bg-white focus:ring-8 focus:ring-accent/10 transition-all text-lg lg:text-2xl font-bold w-full rounded-2xl lg:rounded-[3rem] resize-none" placeholder="আপনার বার্তাটি এখানে লিখুন..."></textarea>
                 </div>
@@ -209,7 +209,7 @@ export default function Contact() {
               viewport={{ once: true }}
             >
               <h2 className="text-7xl md:text-8xl font-black text-white mb-8">আমাদের অবস্থান <span className="text-accent text-3d-premium">ম্যাপে</span></h2>
-              <p className="text-accent text-sm font-black tracking-[0.6em] uppercase opacity-80">Find us on Interactive Map</p>
+              <p className="text-accent text-sm font-black tracking-[0.6em] uppercase opacity-80">ইন্টারেক্টিভ ম্যাপে আমাদের খুঁজুন</p>
               <div className="w-48 h-3 bg-accent mx-auto mt-12 rounded-full shadow-[0_0_30px_rgba(242,125,38,0.6)]"></div>
             </motion.div>
           </div>
