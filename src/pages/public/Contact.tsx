@@ -60,7 +60,7 @@ export default function Contact() {
               {[
                 { icon: MapPin, title: 'অবস্থান', bn: '১২৩ ইসলামিক সেন্টার রোড, ঢাকা', en: 'আমাদের অবস্থান', color: 'bg-primary' },
                 { icon: Phone, title: 'ফোন নম্বর', bn: '+৮৮০ ১২৩৪ ৫৬৭৮৯০', en: 'যেকোনো সময় কল করুন', color: 'bg-secondary' },
-                { icon: Mail, title: 'ইমেইল', bn: 'info@noormadrasha.com', en: 'বার্তা পাঠান', color: 'bg-accent' },
+                { icon: Mail, title: 'ইমেইল', bn: 'info@darussunnah.com', en: 'বার্তা পাঠান', color: 'bg-accent' },
                 { icon: Clock, title: 'অফিস সময়', bn: 'শনি - বৃহস্পতি: ৮টা - ৪টা', en: 'কাজের সময়', color: 'bg-emerald-500' },
               ].map((item, i) => (
                 <motion.div 

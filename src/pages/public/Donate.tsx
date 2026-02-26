@@ -242,7 +242,7 @@ export default function Donate() {
                   <div ref={receiptRef} className="bg-slate-50 p-10 rounded-[2.5rem] border-2 border-dashed border-slate-200 text-left space-y-6 relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16"></div>
                     <div className="text-center border-b border-slate-200 pb-6 mb-6">
-                      <h4 className="text-xl font-black text-primary">নূর মাদ্রাসা স্মার্ট সিস্টেম</h4>
+                      <h4 className="text-xl font-black text-primary">সামছুন্নাহার দারুস সুন্নাহ মহিলা টাইটেল মাদরাসা</h4>
                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">অনুরসিদ (Donation Receipt)</p>
                     </div>
                     <div className="space-y-4">

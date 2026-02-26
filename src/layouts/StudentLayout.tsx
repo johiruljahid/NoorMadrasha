@@ -25,7 +25,14 @@ export default function StudentLayout() {
       <aside className="hidden md:flex flex-col w-64 bg-primary text-white fixed inset-y-0 left-0 z-50">
         <div className="p-6 border-b border-primary-foreground/10">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-white text-primary rounded-lg flex items-center justify-center font-bold">N</div>
+            <div className="w-8 h-8 flex items-center justify-center">
+              <img 
+                src="https://i.ibb.co.com/chnxgycR/madrasha-logo-removebg-preview.png" 
+                alt="Logo" 
+                className="w-full h-full object-contain"
+                referrerPolicy="no-referrer"
+              />
+            </div>
             <span className="font-islamic font-bold text-lg">ছাত্র পোর্টাল</span>
           </div>
         </div>
@@ -60,8 +67,15 @@ export default function StudentLayout() {
       {/* Mobile Header */}
       <header className="md:hidden bg-primary text-white p-4 sticky top-0 z-40 flex justify-between items-center shadow-md">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-white text-primary rounded-lg flex items-center justify-center font-bold">N</div>
-          <span className="font-islamic font-bold">নূর মাদ্রাসা</span>
+          <div className="w-8 h-8 flex items-center justify-center">
+            <img 
+              src="https://i.ibb.co.com/chnxgycR/madrasha-logo-removebg-preview.png" 
+              alt="Logo" 
+              className="w-full h-full object-contain"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <span className="font-islamic font-bold">ছাত্র পোর্টাল</span>
         </div>
         <button onClick={handleLogout} className="p-2 hover:bg-white/10 rounded-lg">
           <LogOut size={20} />

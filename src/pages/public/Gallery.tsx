@@ -53,7 +53,7 @@ export default function Gallery() {
               <span className="text-accent text-3d-premium">মুহূর্তসমূহ</span>
             </h1>
             <p className="text-lg sm:text-2xl lg:text-3xl text-white/80 max-w-4xl mx-auto leading-relaxed font-bold drop-shadow-xl">
-              নূর মাদ্রাসার প্রাণবন্ত ক্যাম্পাস জীবন, আধুনিক সুযোগ-সুবিধা এবং বিভিন্ন অনুষ্ঠানের এক ঝলক দেখে নিন আমাদের গ্যালারিতে।
+              সামছুন্নাহার দারুস সুন্নাহ মহিলা টাইটেল মাদরাসার প্রাণবন্ত ক্যাম্পাস জীবন, আধুনিক সুযোগ-সুবিধা এবং বিভিন্ন অনুষ্ঠানের এক ঝলক দেখে নিন আমাদের গ্যালারিতে।
             </p>
           </motion.div>
         </div>

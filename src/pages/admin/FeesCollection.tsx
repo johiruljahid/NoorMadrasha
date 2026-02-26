@@ -49,9 +49,9 @@ export default function FeesCollection() {
 
   useEffect(() => {
     setFees([
-      { id: 'F101', studentName: 'আবদুল্লাহ আল মামুন', roll: '১২', className: 'অষ্টম শ্রেণী', type: 'মাসিক ফি', amount: 2500, date: '২০২৬-০২-২২', status: 'paid' },
-      { id: 'F102', studentName: 'ওমর ফারুক', roll: '১৫', className: 'অষ্টম শ্রেণী', type: 'মাসিক ফি', amount: 2500, date: '২০২৬-০২-২১', status: 'due' },
-      { id: 'F103', studentName: 'জুবায়ের আহমেদ', roll: '০১', className: 'অষ্টম শ্রেণী', type: 'ভর্তি ফি', amount: 5000, date: '২০২৬-০২-২০', status: 'paid' },
+      { id: 'F101', studentName: 'আবদুল্লাহ আল মামুন', roll: '১২', className: 'নূরানী-১ম', type: 'মাসিক ফি', amount: 2500, date: '২০২৬-০২-২২', status: 'paid' },
+      { id: 'F102', studentName: 'ওমর ফারুক', roll: '১৫', className: 'নূরানী-১ম', type: 'মাসিক ফি', amount: 2500, date: '২০২৬-০২-২১', status: 'due' },
+      { id: 'F103', studentName: 'জুবায়ের আহমেদ', roll: '০১', className: 'নূরানী-১ম', type: 'ভর্তি ফি', amount: 5000, date: '২০২৬-০২-২০', status: 'paid' },
     ]);
 
     // Load pending requests
@@ -172,7 +172,7 @@ export default function FeesCollection() {
     printWindow.document.write(`
       <html>
         <head>
-          <title>Receipt - Noor Madrasha</title>
+          <title>Receipt - Samshunnahar Darus Sunnah Mohila Title Madrasha</title>
           <style>
             body { font-family: sans-serif; padding: 40px; }
             .header { text-align: center; border-bottom: 2px solid #065f46; padding-bottom: 20px; margin-bottom: 30px; }
@@ -186,7 +186,7 @@ export default function FeesCollection() {
         </head>
         <body>
           <div class="header">
-            <h1>NOOR MADRASHA SMART SYSTEM</h1>
+            <h1>SAMSHUNNAHAR DARUS SUNNAH MOHILA TITLE MADRASHA</h1>
             <p>Official Payment Receipt</p>
           </div>
           <div class="details">
@@ -220,7 +220,7 @@ export default function FeesCollection() {
     doc.rect(0, 0, 210, 40, 'F');
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(20);
-    doc.text('NOOR MADRASHA SMART SYSTEM', 105, 20, { align: 'center' });
+    doc.text('সামছুন্নাহার দারুস সুন্নাহ মহিলা টাইটেল মাদরাসা', 105, 20, { align: 'center' });
     doc.setFontSize(12);
     doc.text('Payment Receipt', 105, 30, { align: 'center' });
 

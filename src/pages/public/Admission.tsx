@@ -42,7 +42,7 @@ export default function Admission() {
           <p className="text-accent-dark text-sm font-black tracking-[0.4em] uppercase mb-12">Application Received Successfully</p>
           
           <p className="text-slate-600 mb-12 leading-relaxed text-2xl font-bold">
-            নূর মাদ্রাসায় আবেদনের জন্য আপনাকে ধন্যবাদ। আপনার আবেদনটি সফলভাবে জমা হয়েছে। আমাদের ভর্তি টিম এটি পর্যালোচনা করবে এবং পরবর্তী ৩-৫ কার্যদিবসের মধ্যে আপনার সাথে যোগাযোগ করবে।
+            সামছুন্নাহার দারুস সুন্নাহ মহিলা টাইটেল মাদরাসায় আবেদনের জন্য আপনাকে ধন্যবাদ। আপনার আবেদনটি সফলভাবে জমা হয়েছে। আমাদের ভর্তি টিম এটি পর্যালোচনা করবে এবং পরবর্তী ৩-৫ কার্যদিবসের মধ্যে আপনার সাথে যোগাযোগ করবে।
           </p>
           
           <div className="p-10 bg-white/50 rounded-[3rem] text-left border-4 border-slate-100 mb-12 shadow-inner backdrop-blur-sm relative overflow-hidden">
@@ -115,7 +115,7 @@ export default function Admission() {
               <span className="text-accent text-3d-premium">উজ্জ্বল ভবিষ্যৎ</span>
             </h1>
             <p className="text-lg sm:text-2xl lg:text-3xl text-white/80 max-w-4xl mx-auto leading-relaxed font-bold drop-shadow-xl">
-              নূর মাদ্রাসায় আমরা আপনার সন্তানকে দ্বীনি ও আধুনিক শিক্ষার এক অনন্য পরিবেশে গড়ে তুলি। নিচের ফর্মটি পূরণ করে আপনার আবেদন প্রক্রিয়া শুরু করুন।
+              সামছুন্নাহার দারুস সুন্নাহ মহিলা টাইটেল মাদরাসায় আমরা আপনার সন্তানকে দ্বীনি ও আধুনিক শিক্ষার এক অনন্য পরিবেশে গড়ে তুলি। নিচের ফর্মটি পূরণ করে আপনার আবেদন প্রক্রিয়া শুরু করুন।
             </p>
           </motion.div>
         </div>
@@ -207,7 +207,7 @@ export default function Admission() {
                     <div className="relative group">
                       <GraduationCap className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors" size={24} />
                       <select className="w-full py-6 pl-16 pr-8 bg-slate-50 border-4 border-slate-100 rounded-[2rem] focus:bg-white focus:border-primary transition-all text-xl font-bold outline-none shadow-inner appearance-none cursor-pointer">
-                        {['প্রথম শ্রেণী', 'দ্বিতীয় শ্রেণী', 'তৃতীয় শ্রেণী', 'চতুর্থ শ্রেণী', 'পঞ্চম শ্রেণী', 'ষষ্ঠ শ্রেণী', 'সপ্তম শ্রেণী', 'অষ্টম শ্রেণী', 'নবম শ্রেণী', 'দশম শ্রেণী'].map(c => (
+                        {['নূরানী-১ম', 'নূরানী-২য়', 'নূরানী-৩য়', 'হিফজ- নাজেরা', 'হিফজ', '৫ম শ্রেণী', 'মিযান', 'নাহবেমীর', 'হেদায়াতুন্নাহু', 'কাফিয়া', 'জালালাইন', 'মিশকাত', 'তাকমিল ফিল হাদীস'].map(c => (
                           <option key={c} value={c}>{c}</option>
                         ))}
                       </select>
@@ -344,7 +344,7 @@ export default function Admission() {
                 <div className="p-12 bg-slate-50 rounded-[4rem] space-y-10 border-4 border-slate-100 shadow-inner relative overflow-hidden">
                   <div className="absolute top-0 left-0 w-full h-4 bg-gradient-to-r from-primary via-accent to-primary"></div>
                   <p className="text-2xl text-slate-600 leading-relaxed font-bold">
-                    আবেদনটি জমা দেওয়ার আগে দয়া করে সমস্ত তথ্য পুনরায় যাচাই করে নিন। 'আবেদন জমা দিন' বাটনে ক্লিক করার মাধ্যমে আপনি নূর মাদ্রাসার নিয়ম ও শৃঙ্খলা মেনে চলতে সম্মত হচ্ছেন।
+                    আবেদনটি জমা দেওয়ার আগে দয়া করে সমস্ত তথ্য পুনরায় যাচাই করে নিন। 'আবেদন জমা দিন' বাটনে ক্লিক করার মাধ্যমে আপনি সামছুন্নাহার দারুস সুন্নাহ মহিলা টাইটেল মাদরাসার নিয়ম ও শৃঙ্খলা মেনে চলতে সম্মত হচ্ছেন।
                   </p>
                   <label className="flex items-start gap-8 cursor-pointer group p-10 bg-white rounded-[3rem] border-4 border-slate-100 hover:border-primary/30 transition-all shadow-xl">
                     <div className="relative flex items-center mt-1">
@@ -422,7 +422,7 @@ export default function Admission() {
             viewport={{ once: true }}
           >
             <h2 className="text-5xl sm:text-7xl lg:text-9xl font-black text-primary-dark mb-8 leading-tight">আমাদের <span className="text-accent text-3d-premium">বিভাগ ও ক্লাসসমূহ</span></h2>
-            <p className="text-slate-500 text-xl lg:text-3xl font-bold max-w-4xl mx-auto leading-relaxed">নূর মাদ্রাসায় আমরা বিভিন্ন স্তরে মানসম্মত দ্বীনি শিক্ষা প্রদান করি। আমাদের প্রধান বিভাগসমূহ নিচে তুলে ধরা হলো।</p>
+            <p className="text-slate-500 text-xl lg:text-3xl font-bold max-w-4xl mx-auto leading-relaxed">সামছুন্নাহার দারুস সুন্নাহ মহিলা টাইটেল মাদরাসায় আমরা বিভিন্ন স্তরে মানসম্মত দ্বীনি শিক্ষা প্রদান করি। আমাদের প্রধান বিভাগসমূহ নিচে তুলে ধরা হলো।</p>
             <div className="w-40 h-3 bg-accent mx-auto mt-12 rounded-full shadow-lg"></div>
           </motion.div>
         </div>

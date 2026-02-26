@@ -174,9 +174,9 @@ export default function AdminDashboard() {
               <h3 className="text-xl font-bold text-slate-900 mb-8">উপস্থিতি ওভারভিউ</h3>
               <div className="space-y-8">
                 {[
-                  { class: 'দশম শ্রেণী', present: 48, total: 50, color: 'bg-emerald-500' },
-                  { class: 'নবম শ্রেণী', present: 42, total: 45, color: 'bg-primary' },
-                  { class: 'অষ্টম শ্রেণী', present: 38, total: 40, color: 'bg-secondary' },
+                  { class: 'নূরানী-১ম', present: 48, total: 50, color: 'bg-emerald-500' },
+                  { class: 'নূরানী-২য়', present: 42, total: 45, color: 'bg-primary' },
+                  { class: 'নূরানী-৩য়', present: 38, total: 40, color: 'bg-secondary' },
                 ].map((c, i) => (
                   <div key={i}>
                     <div className="flex justify-between text-sm mb-3">

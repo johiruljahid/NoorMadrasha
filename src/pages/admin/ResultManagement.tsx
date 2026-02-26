@@ -16,22 +16,24 @@ import jsPDF from 'jspdf';
 import { formatCurrency } from '../../lib/utils';
 
 export default function ResultManagement() {
-  const [selectedClass, setSelectedClass] = useState('অষ্টম শ্রেণী');
+  const [selectedClass, setSelectedClass] = useState('নূরানী-১ম');
   const [selectedExam, setSelectedExam] = useState('প্রথম সাময়িক পরীক্ষা');
   const [students, setStudents] = useState<any[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubjectModalOpen, setIsSubjectModalOpen] = useState(false);
   const [currentStudent, setCurrentStudent] = useState<any>(null);
   const [newSubjectName, setNewSubjectName] = useState('');
-  const [subjectTargetClass, setSubjectTargetClass] = useState('অষ্টম শ্রেণী');
+  const [subjectTargetClass, setSubjectTargetClass] = useState('নূরানী-১ম');
   const [searchTerm, setSearchTerm] = useState('');
 
   // Marks Entry State (Subjects per Class)
   const [classSubjects, setClassSubjects] = useState<Record<string, string[]>>({
-    'প্রথম শ্রেণী': ['আরবি', 'কুরআন', 'ইংরেজি', 'গণিত'],
-    'অষ্টম শ্রেণী': ['আরবি', 'কুরআন', 'হাদিস', 'ইংরেজি', 'গণিত', 'বিজ্ঞান', 'সমাজ বিজ্ঞান'],
-    'নবম শ্রেণী': ['আরবি', 'কুরআন', 'হাদিস', 'ইংরেজি', 'গণিত', 'পদার্থবিজ্ঞান', 'রসায়ন', 'জীববিজ্ঞান'],
-    'দশম শ্রেণী': ['আরবি', 'কুরআন', 'হাদিস', 'ইংরেজি', 'গণিত', 'পদার্থবিজ্ঞান', 'রসায়ন', 'জীববিজ্ঞান', 'উচ্চতর গণিত']
+    'নূরানী-১ম': ['আরবি', 'কুরআন', 'ইংরেজি', 'গণিত'],
+    'নূরানী-২য়': ['আরবি', 'কুরআন', 'ইংরেজি', 'গণিত'],
+    'নূরানী-৩য়': ['আরবি', 'কুরআন', 'ইংরেজি', 'গণিত'],
+    'হিফজ': ['কুরআন হিফজ', 'তাজবিদ', 'মাসনুন দোয়া'],
+    'মিশকাত': ['হাদিস', 'উসূলে হাদিস', 'ফিকহ'],
+    'তাকমিল ফিল হাদীস': ['বুখারী শরীফ', 'মুসলিম শরীফ', 'তিরমিযী শরীফ']
   });
 
   const [marks, setMarks] = useState<Record<string, number>>({});
@@ -177,7 +179,7 @@ export default function ResultManagement() {
               onChange={(e) => setSelectedClass(e.target.value)}
               className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-2 border-transparent focus:border-primary/20 outline-none font-black text-slate-700 shadow-inner"
             >
-              {['প্রথম শ্রেণী', 'দ্বিতীয় শ্রেণী', 'তৃতীয় শ্রেণী', 'চতুর্থ শ্রেণী', 'পঞ্চম শ্রেণী', 'ষষ্ঠ শ্রেণী', 'সপ্তম শ্রেণী', 'অষ্টম শ্রেণী', 'নবম শ্রেণী', 'দশম শ্রেণী'].map(c => (
+              {['নূরানী-১ম', 'নূরানী-২য়', 'নূরানী-৩য়', 'হিফজ- নাজেরা', 'হিফজ', '৫ম শ্রেণী', 'মিযান', 'নাহবেমীর', 'হেদায়াতুন্নাহু', 'কাফিয়া', 'জালালাইন', 'মিশকাত', 'তাকমিল ফিল হাদীস'].map(c => (
                 <option key={c} value={c}>{c}</option>
               ))}
             </select>
@@ -374,7 +376,7 @@ export default function ResultManagement() {
                     onChange={(e) => setSubjectTargetClass(e.target.value)}
                     className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-2 border-transparent focus:border-secondary/20 outline-none font-black text-slate-700 shadow-inner"
                   >
-                    {['প্রথম শ্রেণী', 'দ্বিতীয় শ্রেণী', 'তৃতীয় শ্রেণী', 'চতুর্থ শ্রেণী', 'পঞ্চম শ্রেণী', 'ষষ্ঠ শ্রেণী', 'সপ্তম শ্রেণী', 'অষ্টম শ্রেণী', 'নবম শ্রেণী', 'দশম শ্রেণী'].map(c => (
+                    {['নূরানী-১ম', 'নূরানী-২য়', 'নূরানী-৩য়', 'হিফজ- নাজেরা', 'হিফজ', '৫ম শ্রেণী', 'মিযান', 'নাহবেমীর', 'হেদায়াতুন্নাহু', 'কাফিয়া', 'জালালাইন', 'মিশকাত', 'তাকমিল ফিল হাদীস'].map(c => (
                       <option key={c} value={c}>{c}</option>
                     ))}
                   </select>

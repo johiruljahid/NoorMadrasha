@@ -72,9 +72,9 @@ export default function Home() {
         {/* Background Layers */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202505/up-government-conference-with-madrasa-teachers-114141114-16x9.jpg?VersionId=eQuEcbUYZG7PrmVXgoaLiqIRBPm4pEMC&size=690:388" 
+            src="https://www.ourislam24.com/wp-content/uploads/2017/08/mohila-madrsa.jpg" 
             alt="Madrasha Background" 
-            className="w-full h-full object-cover opacity-20 scale-105"
+            className="w-full h-full object-cover opacity-30 scale-105 blur-[2px]"
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/95 via-primary-dark/70 to-primary-dark/40"></div>
@@ -99,7 +99,7 @@ export default function Home() {
             <div className="inline-flex items-center gap-3 lg:gap-4 py-3 lg:py-4 px-6 lg:px-10 rounded-full bg-gradient-to-r from-primary-dark/60 to-transparent backdrop-blur-2xl border-2 border-accent/30 mb-8 lg:mb-12 floating-3d shadow-[0_30px_60px_rgba(0,0,0,0.5)] mx-auto lg:mx-0">
                 <Sparkles size={20} className="text-accent animate-pulse lg:w-7 lg:h-7" /> 
                 <span className="font-black tracking-[0.2em] lg:tracking-[0.3em] text-xs lg:text-lg uppercase text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
-                  নূর মাদ্রাসায় স্বাগতম • <span className="text-accent">জ্ঞানের আলোকবর্তিকা</span>
+                  স্বাগতম • <span className="text-accent">জ্ঞানের আলোকবর্তিকা</span>
                 </span>
               </div>
               
@@ -238,11 +238,11 @@ export default function Home() {
               viewport={{ once: true }}
               className="relative order-2 lg:order-1"
             >
-              <div className="aspect-[4/5] rounded-3xl lg:rounded-[5rem] overflow-hidden shadow-[0_80px_150px_rgba(0,0,0,0.8)] border-[8px] lg:border-[16px] border-white/5 relative group">
+              <div className="aspect-[4/5] rounded-3xl lg:rounded-[5rem] overflow-hidden shadow-[0_80px_150px_rgba(0,0,0,0.8)] border-[8px] lg:border-[16px] border-white/5 relative group bg-white/10 backdrop-blur-md">
                 <img 
-                  src="https://wisdomacademybd.com/admin/uploads/ems-theme-2/website/about-us/muhammad_khan_principal.jpg" 
+                  src="https://i.ibb.co.com/nNZHk3VZ/Whats-App-Image-2026-02-26-at-1-50-15-PM-removebg-preview.png" 
                   alt="Principal" 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                  className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-1000"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
@@ -257,7 +257,7 @@ export default function Home() {
                   <div className="w-1 lg:w-1.5 h-8 lg:h-16 bg-primary/30 rounded-full"></div>
                   <div>
                     <p className="text-primary font-black text-sm lg:text-3xl">মাওলানা আহমাদুল্লাহ</p>
-                    <p className="text-primary/70 text-[8px] lg:text-sm font-black uppercase tracking-[0.2em] lg:tracking-[0.4em] mt-1 lg:mt-2">অধ্যক্ষ, নূর মাদ্রাসা</p>
+                    <p className="text-primary/70 text-[8px] lg:text-sm font-black uppercase tracking-[0.2em] lg:tracking-[0.4em] mt-1 lg:mt-2">অধ্যক্ষ</p>
                   </div>
                 </div>
               </motion.div>
@@ -273,7 +273,7 @@ export default function Home() {
               <span className="text-accent font-black uppercase tracking-[0.4em] lg:tracking-[0.6em] text-[10px] lg:text-sm mb-6 lg:mb-10 block shadow-accent/20 drop-shadow-xl">অধ্যক্ষের বাণী | বাণী</span>
               <h2 className="text-4xl sm:text-6xl lg:text-8xl text-white mb-8 lg:mb-14 font-black leading-tight drop-shadow-2xl">প্রজ্ঞা ও ঈমানের <br /><span className="text-accent text-3d-premium">পথে অগ্রযাত্রা</span></h2>
               <div className="space-y-6 lg:space-y-12 text-white/70 text-lg lg:text-3xl leading-relaxed font-bold">
-                <p>আসসালামু আলাইকুম। নূর মাদ্রাসায় আমরা বিশ্বাস করি যে প্রতিটি শিশু আল্লাহর পক্ষ থেকে একটি আমানত। আমাদের লক্ষ্য হলো তাদের এমনভাবে গড়ে তোলা যাতে তারা ইহকাল ও পরকালে সফল হতে পারে।</p>
+                <p>আসসালামু আলাইকুম। সামছুন্নাহার দারুস সুন্নাহ মহিলা টাইটেল মাদরাসায় আমরা বিশ্বাস করি যে প্রতিটি শিশু আল্লাহর পক্ষ থেকে একটি আমানত। আমাদের লক্ষ্য হলো তাদের এমনভাবে গড়ে তোলা যাতে তারা ইহকাল ও পরকালে সফল হতে পারে।</p>
                 <p className="text-white font-black italic border-l-4 lg:border-l-[12px] border-accent pl-6 lg:pl-12 bg-white/5 py-6 lg:py-12 rounded-2xl lg:rounded-[3rem] shadow-2xl">আমরা ঐতিহ্যবাহী ইসলামিক শিক্ষার সাথে আধুনিক একাডেমিক শিক্ষার এক অপূর্ব সমন্বয় ঘটিয়েছি যাতে আমাদের ছাত্ররা আগামীর চ্যালেঞ্জ মোকাবেলায় সক্ষম হয়।</p>
               </div>
               <Link to="/about" className="btn-premium-gold mt-10 lg:mt-20 inline-flex px-8 lg:px-16 py-4 lg:py-7 text-lg lg:text-2xl shadow-[0_30px_60px_rgba(242,125,38,0.4)]">

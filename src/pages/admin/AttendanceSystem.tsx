@@ -134,7 +134,7 @@ export default function AttendanceSystem() {
               onChange={(e) => setSelectedClass(e.target.value)}
               className="flex-grow md:flex-grow-0 px-8 py-4 rounded-[2rem] bg-slate-50 border-2 border-transparent focus:border-primary/20 outline-none font-black text-slate-700 shadow-inner"
             >
-              {['প্রথম শ্রেণী', 'দ্বিতীয় শ্রেণী', 'তৃতীয় শ্রেণী', 'চতুর্থ শ্রেণী', 'পঞ্চম শ্রেণী', 'ষষ্ঠ শ্রেণী', 'সপ্তম শ্রেণী', 'অষ্টম শ্রেণী', 'নবম শ্রেণী', 'দশম শ্রেণী'].map(c => (
+              {['নূরানী-১ম', 'নূরানী-২য়', 'নূরানী-৩য়', 'হিফজ- নাজেরা', 'হিফজ', '৫ম শ্রেণী', 'মিযান', 'নাহবেমীর', 'হেদায়াতুন্নাহু', 'কাফিয়া', 'জালালাইন', 'মিশকাত', 'তাকমিল ফিল হাদীস'].map(c => (
                 <option key={c} value={c}>{c}</option>
               ))}
             </select>

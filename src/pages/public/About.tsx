@@ -51,7 +51,7 @@ export default function About() {
               </span>
             </div>
             <h1 className="text-5xl sm:text-7xl lg:text-8xl md:text-[10rem] font-black text-white mb-8 lg:mb-10 leading-tight drop-shadow-[0_30px_60px_rgba(0,0,0,0.6)]">
-              নূর মাদ্রাসার <br />
+              সামছুন্নাহার দারুস সুন্নাহ মহিলা টাইটেল মাদরাসার <br />
               <span className="text-accent text-3d-premium">গৌরবময় পথচলা</span>
             </h1>
             <p className="text-lg sm:text-2xl lg:text-3xl md:text-4xl text-white/80 max-w-5xl mx-auto leading-relaxed font-bold drop-shadow-xl">
@@ -292,7 +292,7 @@ export default function About() {
             <h2 className="text-7xl md:text-8xl font-black text-primary-dark leading-tight">আমাদের দীর্ঘ পথচলা ও <br /><span className="text-accent text-3d-premium">সাফল্যের ইতিহাস</span></h2>
             <div className="w-40 h-3 bg-accent rounded-full shadow-xl"></div>
             <p className="text-slate-600 text-3xl leading-relaxed font-bold">
-              ২০১৫ সালে মাত্র কয়েকজন শিক্ষার্থী নিয়ে নূর মাদ্রাসার যাত্রা শুরু হয়েছিল। আজ আমরা শত শত শিক্ষার্থীর পদচারণায় মুখরিত একটি পূর্ণাঙ্গ শিক্ষা প্রতিষ্ঠান।
+              ২০১৫ সালে মাত্র কয়েকজন শিক্ষার্থী নিয়ে সামছুন্নাহার দারুস সুন্নাহ মহিলা টাইটেল মাদরাসার যাত্রা শুরু হয়েছিল। আজ আমরা শত শত শিক্ষার্থীর পদচারণায় মুখরিত একটি পূর্ণাঙ্গ শিক্ষা প্রতিষ্ঠান।
             </p>
             <p className="text-slate-500 text-2xl leading-relaxed font-bold">
               আমাদের এই দীর্ঘ পথচলায় আমরা অসংখ্য মেধাবী শিক্ষার্থী তৈরি করেছি যারা আজ দেশ-বিদেশে সুনামের সাথে কাজ করছে। আমরা বিশ্বাস করি শিক্ষা কেবল পুঁথিগত বিদ্যা নয়, বরং এটি একটি জীবনব্যাপী প্রক্রিয়া।

@@ -14,7 +14,7 @@ export default function VerifyStudent() {
     'NM-1001': {
       id: 'NM-1001',
       name: 'আব্দুল্লাহ আল মামুন',
-      className: 'অষ্টম শ্রেণী',
+      className: 'নূরানী-১ম',
       roll: '১২',
       fatherName: 'আবদুর রহমান',
       motherName: 'ফাতেমা বেগম',
@@ -32,7 +32,7 @@ export default function VerifyStudent() {
     'NM-1002': {
       id: 'NM-1002',
       name: 'ওমর ফারুক',
-      className: 'অষ্টম শ্রেণী',
+      className: 'নূরানী-১ম',
       roll: '১৫',
       fatherName: 'ইব্রাহিম আলী',
       motherName: 'খাদিজা খাতুন',
@@ -75,7 +75,7 @@ export default function VerifyStudent() {
     doc.rect(0, 0, 210, 40, 'F');
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(20);
-    doc.text('নূর মাদ্রাসা স্মার্ট সিস্টেম', 105, 20, { align: 'center' });
+    doc.text('সামছুন্নাহার দারুস সুন্নাহ মহিলা টাইটেল মাদরাসা', 105, 20, { align: 'center' });
     doc.setFontSize(12);
     doc.text('অফিসিয়াল শিক্ষার্থী যাচাইকরণ ও ফলাফল রিপোর্ট', 105, 30, { align: 'center' });
 

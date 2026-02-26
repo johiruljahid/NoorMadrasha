@@ -147,7 +147,7 @@ export default function AdminLogin() {
           transition={{ delay: 0.5 }}
           className="mt-8 text-center text-[10px] text-slate-500 font-bold uppercase tracking-[0.4em]"
         >
-          নূর মাদ্রাসা সিকিউরিটি সিস্টেম v২.০
+          সামছুন্নাহার দারুস সুন্নাহ মহিলা টাইটেল মাদরাসা সিকিউরিটি সিস্টেম v২.০
         </motion.p>
       </motion.div>
     </div>

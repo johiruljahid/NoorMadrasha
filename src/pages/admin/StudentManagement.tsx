@@ -28,7 +28,7 @@ export default function StudentManagement() {
   // Form State
   const [formData, setFormData] = useState({
     name: '',
-    className: 'প্রথম শ্রেণী',
+    className: 'নূরানী-১ম',
     roll: '',
     fatherName: '',
     motherName: '',
@@ -47,7 +47,7 @@ export default function StudentManagement() {
       {
         id: 'NM-1001',
         name: 'আবদুল্লাহ আল মামুন',
-        className: 'অষ্টম শ্রেণী',
+        className: 'নূরানী-১ম',
         roll: '১২',
         accessCode: 'NM-1001',
         fatherName: 'আবদুর রহমান',
@@ -61,7 +61,7 @@ export default function StudentManagement() {
       {
         id: 'NM-1002',
         name: 'ওমর ফারুক',
-        className: 'অষ্টম শ্রেণী',
+        className: 'নূরানী-১ম',
         roll: '১৫',
         accessCode: 'NM-1002',
         fatherName: 'ইব্রাহিম আলী',
@@ -149,7 +149,7 @@ export default function StudentManagement() {
   const resetForm = () => {
     setFormData({
       name: '',
-      className: 'প্রথম শ্রেণী',
+      className: 'নূরানী-১ম',
       roll: '',
       fatherName: '',
       motherName: '',
@@ -232,7 +232,7 @@ export default function StudentManagement() {
             className="px-6 py-4 rounded-2xl bg-slate-50 border-2 border-transparent focus:border-primary/20 focus:bg-white transition-all outline-none font-bold text-slate-600 shadow-inner"
           >
             <option value="সব">সব শ্রেণী</option>
-            {['প্রথম শ্রেণী', 'দ্বিতীয় শ্রেণী', 'তৃতীয় শ্রেণী', 'চতুর্থ শ্রেণী', 'পঞ্চম শ্রেণী', 'ষষ্ঠ শ্রেণী', 'সপ্তম শ্রেণী', 'অষ্টম শ্রেণী', 'নবম শ্রেণী', 'দশম শ্রেণী'].map(c => (
+            {['নূরানী-১ম', 'নূরানী-২য়', 'নূরানী-৩য়', 'হিফজ- নাজেরা', 'হিফজ', '৫ম শ্রেণী', 'মিযান', 'নাহবেমীর', 'হেদায়াতুন্নাহু', 'কাফিয়া', 'জালালাইন', 'মিশকাত', 'তাকমিল ফিল হাদীস'].map(c => (
               <option key={c} value={c}>{c}</option>
             ))}
           </select>
@@ -361,7 +361,7 @@ export default function StudentManagement() {
                       onChange={(e) => setFormData({ ...formData, className: e.target.value })}
                       className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-2 border-transparent focus:border-primary/20 outline-none font-black text-slate-700 shadow-inner"
                     >
-                      {['প্রথম শ্রেণী', 'দ্বিতীয় শ্রেণী', 'তৃতীয় শ্রেণী', 'চতুর্থ শ্রেণী', 'পঞ্চম শ্রেণী', 'ষষ্ঠ শ্রেণী', 'সপ্তম শ্রেণী', 'অষ্টম শ্রেণী', 'নবম শ্রেণী', 'দশম শ্রেণী'].map(c => (
+                      {['নূরানী-১ম', 'নূরানী-২য়', 'নূরানী-৩য়', 'হিফজ- নাজেরা', 'হিফজ', '৫ম শ্রেণী', 'মিযান', 'নাহবেমীর', 'হেদায়াতুন্নাহু', 'কাফিয়া', 'জালালাইন', 'মিশকাত', 'তাকমিল ফিল হাদীস'].map(c => (
                         <option key={c} value={c}>{c}</option>
                       ))}
                     </select>

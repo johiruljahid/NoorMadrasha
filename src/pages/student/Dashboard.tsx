@@ -36,8 +36,8 @@ export default function StudentDashboard() {
       id: 'NM251001',
       name: 'Abdullah Al Mamun',
       nameBn: 'আবদুল্লাহ আল মামুন',
-      className: 'Class 8',
-      classNameBn: 'অষ্টম শ্রেণী',
+      className: 'Noorani-1st',
+      classNameBn: 'নূরানী-১ম',
       roll: '12',
       photoUrl: 'https://images.unsplash.com/photo-1544717297-fa15c3902727?auto=format&fit=crop&q=80&w=400',
       attendance: { present: 85, total: 100 },
@@ -193,8 +193,15 @@ export default function StudentDashboard() {
           <div className="bg-primary p-8 text-white relative text-center">
             <div className="absolute inset-0 opacity-10 islamic-pattern"></div>
             <div className="relative z-10">
-              <div className="w-12 h-12 bg-white text-primary rounded-xl flex items-center justify-center font-bold text-2xl mx-auto mb-4">N</div>
-              <h2 className="text-xl font-islamic font-bold">নূর মাদরাসা</h2>
+              <div className="w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                <img 
+                  src="https://i.ibb.co.com/chnxgycR/madrasha-logo-removebg-preview.png" 
+                  alt="Logo" 
+                  className="w-full h-full object-contain brightness-0 invert"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <h2 className="text-lg font-islamic font-bold">সামছুন্নাহার দারুস সুন্নাহ মহিলা টাইটেল মাদরাসা</h2>
               <p className="text-[10px] font-bold tracking-widest uppercase text-accent">স্মার্ট আইডি কার্ড</p>
             </div>
           </div>

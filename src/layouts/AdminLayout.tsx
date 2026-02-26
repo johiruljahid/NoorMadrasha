@@ -83,10 +83,17 @@ export default function AdminLayout() {
         <div className="flex flex-col h-full">
           <div className="p-6 border-b border-slate-800 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white font-bold text-xl">N</div>
+              <div className="w-10 h-10 flex items-center justify-center">
+                <img 
+                  src="https://i.ibb.co.com/chnxgycR/madrasha-logo-removebg-preview.png" 
+                  alt="Logo" 
+                  className="w-full h-full object-contain"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
               <div className="flex flex-col">
                 <span className="text-white font-islamic font-bold text-lg leading-tight">অ্যাডমিন প্যানেল</span>
-                <span className="text-accent text-[10px] font-bold tracking-widest uppercase">নূর মাদ্রাসা</span>
+                <span className="text-accent text-[8px] font-bold tracking-widest uppercase">সামছুন্নাহার দারুস সুন্নাহ মহিলা টাইটেল মাদরাসা</span>
               </div>
             </div>
             <button onClick={() => setIsSidebarOpen(false)} className="lg:hidden p-2 hover:bg-slate-800 rounded-lg">

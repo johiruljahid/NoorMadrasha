@@ -27,7 +27,7 @@ export default function StudentProfile() {
       id: 'NM251001',
       name: 'Abdullah Al Mamun',
       nameBn: 'আবদুল্লাহ আল মামুন',
-      className: 'অষ্টম শ্রেণী',
+      className: 'নূরানী-১ম',
       roll: '১২',
       bloodGroup: 'B+',
       dob: '2012-05-15',

@@ -26,12 +26,17 @@ export default function PublicLayout() {
           <div className="flex justify-between h-20 sm:h-24">
             <div className="flex items-center">
               <Link to="/" className="flex items-center gap-3 group">
-                <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center text-white font-bold text-2xl shadow-lg transform group-hover:rotate-12 transition-transform duration-300 border border-white/20">
-                  ন
+                <div className="w-16 h-16 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                  <img 
+                    src="https://i.ibb.co.com/chnxgycR/madrasha-logo-removebg-preview.png" 
+                    alt="Logo" 
+                    className="w-full h-full object-contain"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-primary-dark font-islamic font-bold text-xl leading-tight tracking-tight">নূর মাদ্রাসা</span>
-                  <span className="text-accent text-[10px] font-bold tracking-[0.2em] uppercase">Noor Madrasha</span>
+                  <span className="text-primary-dark font-islamic font-bold text-lg leading-tight tracking-tight max-w-[200px]">সামছুন্নাহার দারুস সুন্নাহ মহিলা টাইটেল মাদরাসা</span>
+                  <span className="text-accent text-[8px] font-bold tracking-[0.1em] uppercase">Shamsunnahar Darus Sunnah Mohila Title Madrasha</span>
                 </div>
               </Link>
             </div>
@@ -122,12 +127,17 @@ export default function PublicLayout() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
             <div className="col-span-1 md:col-span-2">
               <Link to="/" className="flex items-center gap-3 mb-8 group">
-                <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center text-white font-bold text-3xl shadow-2xl border border-white/10">
-                  ন
+                <div className="w-16 h-16 flex items-center justify-center">
+                  <img 
+                    src="https://i.ibb.co.com/chnxgycR/madrasha-logo-removebg-preview.png" 
+                    alt="Logo" 
+                    className="w-full h-full object-contain"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-white font-islamic font-bold text-2xl leading-tight">নূর মাদ্রাসা</span>
-                  <span className="text-accent text-xs font-bold tracking-[0.3em] uppercase">Noor Madrasha</span>
+                  <span className="text-white font-islamic font-bold text-xl leading-tight">সামছুন্নাহার দারুস সুন্নাহ মহিলা টাইটেল মাদরাসা</span>
+                  <span className="text-accent text-[10px] font-bold tracking-[0.2em] uppercase">Shamsunnahar Darus Sunnah Mohila Title Madrasha</span>
                 </div>
               </Link>
               <p className="text-slate-400 max-w-md mb-10 text-lg leading-relaxed font-medium">
@@ -189,7 +199,7 @@ export default function PublicLayout() {
 
           <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-sm text-slate-500 font-medium">
-              © {new Date().getFullYear()} নূর মাদ্রাসা স্মার্ট সিস্টেম। সর্বস্বত্ব সংরক্ষিত।
+              © {new Date().getFullYear()} সামছুন্নাহার দারুস সুন্নাহ মহিলা টাইটেল মাদরাসা। সর্বস্বত্ব সংরক্ষিত।
             </p>
             <div className="flex items-center gap-8">
               <Link to="/admin-access" className="text-[10px] text-slate-600 hover:text-accent transition-all uppercase tracking-[0.3em] font-bold border border-white/5 px-4 py-2 rounded-lg hover:bg-white/5">
